@@ -1,0 +1,3863 @@
+# Project Requirements Document
+## OneSignal PWA for WordPress
+
+**Project Name:** OneSignal PWA for WordPress  
+**Version:** 1.0  
+**Author:** Oxford Pierpont  
+**Organization:** The Oxford Pierpont Corporation  
+**Website:** https://oxfordpierpont.com  
+**Date:** November 22, 2025  
+**Document Status:** Final
+
+---
+
+## Table of Contents
+
+1. [Executive Summary](#executive-summary)
+2. [Business Case](#business-case)
+3. [Problem Statement](#problem-statement)
+4. [Product Vision & Goals](#product-vision--goals)
+5. [Target Market & User Personas](#target-market--user-personas)
+6. [Competitive Analysis](#competitive-analysis)
+7. [Product Strategy](#product-strategy)
+8. [Feature Requirements](#feature-requirements)
+9. [Technical Architecture](#technical-architecture)
+10. [User Experience & Interface Design](#user-experience--interface-design)
+11. [Integration Requirements](#integration-requirements)
+12. [Security & Privacy](#security--privacy)
+13. [Performance Requirements](#performance-requirements)
+14. [Quality Assurance](#quality-assurance)
+15. [Development Roadmap](#development-roadmap)
+16. [Success Metrics](#success-metrics)
+17. [Risk Management](#risk-management)
+18. [Support & Maintenance](#support--maintenance)
+19. [Monetization Strategy](#monetization-strategy)
+20. [Legal & Compliance](#legal--compliance)
+
+---
+
+## 1. Executive Summary
+
+OneSignal PWA for WordPress represents a strategic initiative to deliver an all-in-one solution that transforms any WordPress website into a fully-featured Progressive Web App with comprehensive push notification capabilities. This plugin addresses a critical gap in the WordPress ecosystem by combining PWA functionality with OneSignal's enterprise-grade messaging platform in a single, user-friendly package.
+
+The plugin targets a market of 60+ million active WordPress installations and positions The Oxford Pierpont Corporation as a leader in the WordPress PWA and notification space. With a freemium pricing model and premium tiers, the plugin is designed to generate sustainable recurring revenue while providing exceptional value to users at every level.
+
+### Key Differentiators
+
+- **Comprehensive Integration**: First WordPress plugin to fully integrate PWA capabilities with OneSignal's complete feature set
+- **No-Code Solution**: Zero technical expertise required for basic implementation
+- **Enterprise Scalability**: Built to support high-traffic sites with millions of users
+- **Developer Extensibility**: 350+ hooks and filters for custom implementations
+- **Revenue-Generating Features**: Built-in e-commerce integrations for abandoned cart recovery and promotional campaigns
+
+### Strategic Objectives
+
+1. Capture 10% of WordPress PWA market share within first year
+2. Achieve 100,000 active installations within 18 months
+3. Generate $500K ARR from premium subscriptions by end of year two
+4. Establish Oxford Pierpont Corporation as thought leader in WordPress PWA space
+5. Build foundation for additional SaaS products leveraging the platform
+
+---
+
+## 2. Business Case
+
+### Market Opportunity
+
+The global Progressive Web Apps market was valued at $1.9 billion in 2024 and is projected to reach $10.44 billion by 2030, growing at a CAGR of 31.9%. WordPress powers 43.5% of all websites, creating a massive addressable market of website owners seeking mobile engagement solutions.
+
+Push notification services represent a $2.1 billion market in 2024, expected to grow to $10.3 billion by 2032. The convergence of PWA technology and push notifications creates a unique opportunity for integrated solutions.
+
+### Revenue Projections
+
+**Year 1:**
+- Free tier users: 50,000
+- Professional tier ($49/month): 2,000 customers = $1.176M ARR
+- Enterprise tier (average $500/month): 50 customers = $300K ARR
+- Total Year 1 ARR: $1.476M
+
+**Year 2:**
+- Free tier users: 150,000
+- Professional tier: 5,000 customers = $2.94M ARR
+- Enterprise tier: 150 customers = $900K ARR
+- Total Year 2 ARR: $3.84M
+
+**Year 3:**
+- Free tier users: 300,000
+- Professional tier: 10,000 customers = $5.88M ARR
+- Enterprise tier: 300 customers = $1.8M ARR
+- Total Year 3 ARR: $7.68M
+
+### Investment Requirements
+
+**Initial Development (Months 1-6):** $250,000
+- Lead developer: $120K
+- Frontend developer: $80K
+- QA engineer: $30K
+- Infrastructure: $20K
+
+**Marketing & Sales (Year 1):** $300,000
+- Content marketing: $100K
+- Paid advertising: $100K
+- Partner program development: $50K
+- Events and conferences: $50K
+
+**Total First Year Investment:** $550,000
+**Expected ROI:** 168% by end of Year 1
+
+### Strategic Value
+
+Beyond direct revenue, this plugin establishes The Oxford Pierpont Corporation's position in the WordPress ecosystem, creating opportunities for:
+- Complementary product launches
+- Consulting and implementation services
+- Training and certification programs
+- White-label partnerships with agencies
+- Data-driven insights into user behavior across thousands of websites
+
+---
+
+## 3. Problem Statement
+
+### Current Challenges
+
+WordPress website owners face significant barriers when attempting to provide mobile app-like experiences:
+
+**Technical Complexity:**
+- Implementing PWA standards requires understanding of service workers, manifest files, and caching strategies
+- OneSignal integration demands API knowledge and JavaScript expertise
+- Maintaining compatibility across browsers and devices is complex
+- Service worker debugging is challenging for non-technical users
+
+**Fragmented Solutions:**
+- Existing PWA plugins lack robust notification integration
+- OneSignal's WordPress plugin doesn't provide full PWA functionality
+- Multiple plugins required, leading to conflicts and performance issues
+- No unified analytics or management interface
+
+**Limited Features:**
+- Basic PWA plugins offer installation but lack advanced features
+- Notification plugins miss advanced segmentation and automation
+- No integrated solution for e-commerce notifications
+- Limited ability to track conversion attribution
+
+**Cost Barriers:**
+- Custom development costs $20K-$50K for comparable functionality
+- Native app development costs $50K-$150K per platform
+- Monthly push notification service fees can exceed $500 for high-volume sites
+- No clear path to ROI for small to medium businesses
+
+### User Pain Points
+
+**For Small Business Owners:**
+- "I want to re-engage visitors but can't afford a mobile app"
+- "My bounce rate is 70% on mobile and I'm losing sales"
+- "Abandoned carts cost me $10K monthly but I have no way to recover them"
+- "I can't compete with larger competitors who have apps"
+
+**For Content Creators:**
+- "Email open rates are declining and I need direct engagement"
+- "I lose readers between posts because they forget about my site"
+- "I want to notify readers instantly when I publish but social media algorithms hide my content"
+- "Setting up push notifications seems too technical"
+
+**For E-commerce Site Owners:**
+- "Cart abandonment is my biggest revenue leak"
+- "I need to send price drop alerts but can't figure out how"
+- "Back-in-stock notifications could increase sales 20% but require custom development"
+- "I want to segment customers by purchase history for targeted promotions"
+
+**For Agencies & Developers:**
+- "Clients want apps but don't have app budgets"
+- "Implementing PWA for each client takes too much development time"
+- "I need a white-label solution I can deploy across my portfolio"
+- "Maintaining custom PWA implementations is unsustainable"
+
+### Impact Analysis
+
+**Without a Solution:**
+- WordPress site owners lose 60-70% of mobile visitors who never return
+- E-commerce sites lose 69.8% of shopping carts to abandonment
+- Content sites see declining traffic as email open rates fall below 20%
+- Small businesses can't compete with larger competitors who have mobile apps
+- Agencies lose revenue opportunities and struggle to differentiate services
+
+**With Our Solution:**
+- PWA installation increases return visitor rate by 40-50%
+- Push notifications achieve 10-20% click-through rates (vs 2% for email)
+- Cart abandonment notifications recover 15-20% of abandoned revenue
+- Installation and setup complete in 15 minutes vs weeks of development
+- Site owners save $20K-$50K in custom development costs
+
+---
+
+## 4. Product Vision & Goals
+
+### Vision Statement
+
+"To democratize mobile app experiences by making PWA technology and enterprise-grade push notifications accessible to every WordPress website owner, regardless of technical expertise or budget."
+
+### Product Mission
+
+Create the definitive Progressive Web App solution for WordPress that combines ease of use with enterprise-level capabilities, enabling website owners to deliver app-like experiences that drive engagement, retention, and revenue growth.
+
+### Primary Goals
+
+#### Goal 1: Market Leadership
+**Objective:** Become the #1 WordPress PWA plugin by active installations and user satisfaction
+**Key Results:**
+- Achieve 100,000 active installations within 18 months
+- Maintain 4.8+ star average rating on WordPress.org
+- Capture 15% of WordPress PWA market share
+- Establish Oxford Pierpont Corporation as recognized brand in WordPress space
+
+#### Goal 2: Revenue Generation
+**Objective:** Build sustainable recurring revenue stream through freemium model
+**Key Results:**
+- 10% conversion rate from free to paid tiers
+- $1.5M ARR by end of Year 1
+- 90% customer retention rate
+- $200 average revenue per user (ARPU) for paid customers
+
+#### Goal 3: User Success
+**Objective:** Deliver measurable business value to users through increased engagement and revenue
+**Key Results:**
+- Users see 40% increase in return visitor rate within 30 days
+- E-commerce users recover 15% of abandoned carts
+- 80% of users complete setup within first session
+- 95% user satisfaction score
+
+#### Goal 4: Technical Excellence
+**Objective:** Set new standard for WordPress plugin quality and performance
+**Key Results:**
+- Page speed impact under 100ms
+- 99.9% uptime for notification delivery
+- Zero critical security vulnerabilities
+- A+ grade on WordPress Plugin Check
+
+#### Goal 5: Ecosystem Integration
+**Objective:** Become essential infrastructure for WordPress e-commerce and content sites
+**Key Results:**
+- Integration with top 20 WordPress plugins
+- 50+ third-party integrations
+- API adoption by 100+ developers
+- Featured in WordPress.com and WooCommerce recommendations
+
+### Secondary Goals
+
+- Establish partner program with 50+ agencies
+- Create certification program with 500+ certified users
+- Publish 100+ educational resources (tutorials, case studies)
+- Speak at 10+ major WordPress conferences
+- Build community of 10,000+ active forum members
+- Open-source portions of codebase to give back to community
+
+---
+
+## 5. Target Market & User Personas
+
+### Market Segmentation
+
+#### Primary Markets
+
+**E-commerce Sites (35% of market)**
+- WooCommerce stores
+- Easy Digital Downloads shops
+- Subscription-based product sites
+- High cart abandonment rates
+- Need for promotional notifications
+- Revenue directly tied to engagement
+
+**Content Publishers (30% of market)**
+- News sites and magazines
+- Blogs and personal brands
+- Online publications
+- Dependent on return visitors
+- Ad revenue or subscription based
+- Need instant publication alerts
+
+**Membership Sites (15% of market)**
+- Online courses and education
+- Coaching and consulting
+- Community platforms
+- Subscription renewals critical
+- Member engagement essential
+- Retention drives lifetime value
+
+**Service Businesses (10% of market)**
+- Local businesses with WordPress sites
+- Professional services
+- SaaS companies using WordPress for marketing
+- Appointment-based businesses
+- Lead generation focus
+
+**Agencies & Developers (10% of market)**
+- Digital agencies managing multiple clients
+- Freelance WordPress developers
+- White-label service providers
+- Need scalable solutions
+- Recurring revenue opportunities
+
+#### Secondary Markets
+
+- Portfolio and personal websites seeking to increase engagement
+- Non-profit organizations building supporter relationships
+- Event websites driving attendance
+- Job boards and classifieds
+- Directory and listing sites
+
+### User Personas
+
+#### Persona 1: Sarah - E-commerce Store Owner
+
+**Demographics:**
+- Age: 35
+- Role: Owner of boutique online store
+- Technical Skill: Intermediate
+- Business Size: 5 employees, $2M annual revenue
+
+**Goals:**
+- Reduce 70% cart abandonment rate
+- Increase return customer rate
+- Automate customer communication
+- Compete with larger retailers
+
+**Frustrations:**
+- Losing $50K annually to cart abandonment
+- Email marketing open rates declining
+- Can't afford custom app development
+- Competitors with apps have advantage
+
+**Use Cases:**
+- Send abandoned cart reminders automatically
+- Alert customers when wishlisted items are back in stock
+- Promote flash sales to engaged customers
+- Send order status updates
+
+**Success Criteria:**
+- Recover 15% of abandoned carts
+- 25% increase in repeat purchase rate
+- Setup complete in under 30 minutes
+- Positive ROI within first month
+
+#### Persona 2: Marcus - Content Creator
+
+**Demographics:**
+- Age: 28
+- Role: Full-time blogger and content creator
+- Technical Skill: Basic to Intermediate
+- Business Size: Solo creator, $150K annual revenue
+
+**Goals:**
+- Notify readers instantly when publishing
+- Build direct relationship with audience
+- Reduce dependence on social media algorithms
+- Monetize through ads and affiliates
+
+**Frustrations:**
+- Social media reach declining
+- Email open rates under 15%
+- Traffic spikes on publish day then drops
+- Readers forget to check back for new content
+
+**Use Cases:**
+- Alert subscribers immediately when new post published
+- Send weekly digest of top content
+- Re-engage readers who haven't visited in 30 days
+- Build installable reading app experience
+
+**Success Criteria:**
+- 40% of readers install PWA
+- 10% click-through on publication notifications
+- 50% increase in return visitor rate
+- Setup without hiring developer
+
+#### Persona 3: Jennifer - Membership Site Administrator
+
+**Demographics:**
+- Age: 42
+- Role: Director of Operations for online education platform
+- Technical Skill: Intermediate
+- Business Size: 25 employees, $5M annual revenue
+
+**Goals:**
+- Increase course completion rates
+- Reduce member churn
+- Automate onboarding and engagement
+- Maximize lifetime customer value
+
+**Frustrations:**
+- 40% of members never complete courses
+- Manual reminder emails time-consuming
+- Member churn at 35% annually
+- No way to segment communications effectively
+
+**Use Cases:**
+- Send course milestone congratulations
+- Remind members about incomplete lessons
+- Alert about new courses based on interests
+- Notify before membership renewal
+- Celebrate achievements and certifications
+
+**Success Criteria:**
+- 20% increase in course completion
+- 15% reduction in churn rate
+- Automated member journey without manual effort
+- Improved member satisfaction scores
+
+#### Persona 4: David - Digital Agency Owner
+
+**Demographics:**
+- Age: 38
+- Role: Founder of 15-person WordPress agency
+- Technical Skill: Advanced
+- Business Size: 15 employees, $2M annual revenue, 50 active clients
+
+**Goals:**
+- Offer PWA as value-add service
+- Generate recurring revenue per client
+- Differentiate from competitors
+- Scale service delivery without proportional headcount
+
+**Frustrations:**
+- Custom PWA development too expensive per client
+- Clients asking for app-like experiences
+- Maintaining custom implementations unsustainable
+- Need white-label solution
+
+**Use Cases:**
+- Deploy PWA across entire client portfolio
+- White-label plugin with agency branding
+- Manage all client notifications from central dashboard
+- Charge monthly retainer for PWA management
+
+**Success Criteria:**
+- Deploy to 50 clients in first quarter
+- Add $500/month per client revenue
+- Zero branding visible to end clients
+- Reduce implementation time from weeks to hours
+
+#### Persona 5: Tom - Solo WordPress Developer
+
+**Demographics:**
+- Age: 31
+- Role: Freelance WordPress developer
+- Technical Skill: Advanced
+- Business Size: Solo freelancer, $120K annual revenue
+
+**Goals:**
+- Expand service offerings
+- Build recurring income
+- Deliver modern solutions to clients
+- Minimize maintenance burden
+
+**Frustrations:**
+- One-time project fees don't provide stable income
+- Clients want features beyond hourly budget
+- Keeping up with technology changes difficult
+- Support requests eat into project time
+
+**Use Cases:**
+- Offer PWA as standard on all projects
+- Extend plugin with custom integrations
+- Use hooks and filters for client-specific needs
+- Monitor all client sites from single dashboard
+
+**Success Criteria:**
+- Add $200/month recurring per client
+- Reduce custom development time by 80%
+- Deliver modern PWA features clients love
+- Extend functionality without core modifications
+
+---
+
+## 6. Competitive Analysis
+
+### Direct Competitors
+
+#### SuperPWA
+**Strengths:**
+- Established presence (200K+ active installations)
+- Simple, lightweight implementation
+- Free tier available
+- Good WordPress.org ratings
+
+**Weaknesses:**
+- No native notification integration
+- Limited customization options
+- Basic caching strategies only
+- No analytics or segmentation
+- Minimal active development
+
+**Market Position:** Basic PWA enablement for budget-conscious users
+
+**Our Advantage:** Comprehensive OneSignal integration, advanced features, active development roadmap
+
+#### PWA for WP & AMP
+**Strengths:**
+- Google AMP integration
+- Push notification support
+- Decent feature set
+- Premium support available
+
+**Weaknesses:**
+- Proprietary notification system (not OneSignal)
+- Complex setup process
+- Performance issues reported
+- Limited e-commerce features
+- Expensive premium pricing ($250+/year)
+
+**Market Position:** Mid-market solution with AMP focus
+
+**Our Advantage:** Better notification platform, easier setup, more reasonable pricing, superior e-commerce integration
+
+#### OneSignal WordPress Plugin
+**Strengths:**
+- Official OneSignal integration
+- Robust notification features
+- Free to use
+- Good documentation
+
+**Weaknesses:**
+- No PWA functionality
+- Doesn't create manifest or service worker
+- Limited WordPress integration
+- No e-commerce automation
+- No advanced caching
+
+**Market Position:** Notification-only solution
+
+**Our Advantage:** Complete PWA implementation, WordPress ecosystem integration, e-commerce features
+
+### Indirect Competitors
+
+#### Native App Development
+**Market:** $150B mobile app development industry
+
+**Advantages:**
+- Full native capabilities
+- App store presence
+- Offline functionality
+- Performance optimized
+
+**Disadvantages:**
+- $50K-$150K+ development cost
+- Months of development time
+- Separate iOS and Android builds
+- Ongoing maintenance costs
+- App store approval process
+- No instant updates
+
+**Our Position:** 90% of functionality at 5% of cost, instant updates, no app store approval, cross-platform by default
+
+#### Email Marketing Platforms
+**Market:** $11.1B email marketing industry
+
+**Competitors:** Mailchimp, Constant Contact, ConvertKit
+
+**Advantages:**
+- Established user bases
+- Advanced automation
+- Extensive integrations
+- Familiar to users
+
+**Disadvantages:**
+- Declining open rates (15-20%)
+- Spam folder issues
+- No real-time delivery
+- Email fatigue among users
+- Mobile email experience poor
+
+**Our Position:** 10-20% notification engagement vs 15-20% email opens, instant delivery, no spam filters, mobile-optimized
+
+#### SMS Marketing Platforms
+**Market:** $7.2B SMS marketing industry
+
+**Competitors:** Twilio, SimpleTexting, EZ Texting
+
+**Advantages:**
+- 98% open rates
+- Direct mobile reach
+- High engagement
+- Familiar channel
+
+**Disadvantages:**
+- High per-message costs ($0.01-$0.05)
+- Character limits
+- Carrier restrictions
+- Requires phone numbers
+- Regulatory compliance complex
+
+**Our Position:** Unlimited notifications at flat rate, rich media support, no character limits, no phone collection needed
+
+### Competitive Matrix
+
+| Feature | Our Plugin | SuperPWA | PWA for WP | OneSignal Plugin | Native App |
+|---------|-----------|----------|------------|------------------|------------|
+| PWA Manifest | ✓ | ✓ | ✓ | ✗ | ✓ |
+| Service Worker | ✓ | ✓ | ✓ | ✗ | ✓ |
+| Offline Support | ✓ | Basic | ✓ | ✗ | ✓ |
+| Push Notifications | ✓ | ✗ | ✓ | ✓ | ✓ |
+| OneSignal Integration | ✓ | ✗ | ✗ | ✓ | Manual |
+| User Segmentation | ✓ | ✗ | Basic | ✓ | ✓ |
+| E-commerce Integration | ✓ | ✗ | Basic | ✗ | ✓ |
+| A/B Testing | ✓ | ✗ | ✗ | ✓ | ✓ |
+| Analytics Dashboard | ✓ | ✗ | Basic | Basic | ✓ |
+| White Label | ✓ | ✗ | ✗ | ✗ | N/A |
+| Multisite Support | ✓ | ✗ | ✗ | ✗ | ✓ |
+| API Access | ✓ | ✗ | ✗ | ✗ | ✓ |
+| Setup Time | 15 min | 5 min | 30 min | 10 min | 3-6 months |
+| Cost (Annual) | $0-$588 | Free | $250 | Free | $50K+ |
+
+### Market Positioning
+
+**Our Strategic Position:** Premium all-in-one solution that combines best-in-class PWA functionality with enterprise-grade notifications at SMB-friendly pricing.
+
+**Value Proposition:**
+- **vs. Basic PWA Plugins:** Complete solution with notifications, not just PWA shell
+- **vs. Notification Plugins:** Full PWA functionality, not just notifications
+- **vs. Native Apps:** 95% of value at 5% of cost and time
+- **vs. Email Marketing:** Higher engagement, instant delivery, better mobile experience
+- **vs. SMS Marketing:** Unlimited notifications, rich media, no per-message costs
+
+**Competitive Moat:**
+1. First-mover advantage in comprehensive PWA + OneSignal integration
+2. Deep WordPress ecosystem integration (WooCommerce, membership plugins, LMS)
+3. Network effects as more users = more resources for development
+4. Data insights from thousands of installations inform product roadmap
+5. Brand recognition from early market leadership
+
+---
+
+## 7. Product Strategy
+
+### Go-to-Market Strategy
+
+#### Phase 1: Launch (Months 1-3)
+**Goals:**
+- Achieve 10,000 installations
+- Establish product-market fit
+- Generate initial customer feedback
+- Create baseline metrics
+
+**Tactics:**
+- Submit to WordPress.org plugin repository
+- Launch on Product Hunt
+- Publish 10 tutorial videos
+- Guest post on top WordPress blogs
+- Email marketing to existing Oxford Pierpont contacts
+- Reddit and WordPress community engagement
+- Early adopter pricing ($29/month for professional tier)
+
+#### Phase 2: Growth (Months 4-12)
+**Goals:**
+- Scale to 50,000 installations
+- Achieve $500K ARR
+- Build partner network
+- Establish thought leadership
+
+**Tactics:**
+- Content marketing (3 blog posts weekly)
+- Paid advertising (Google Ads, Facebook, Twitter)
+- Conference speaking circuit
+- WordPress.tv video series
+- Case study development
+- Affiliate program launch (20% commission)
+- Agency partnership program
+- WooCommerce official integration
+
+#### Phase 3: Scale (Months 13-24)
+**Goals:**
+- Reach 150,000 installations
+- Achieve $2M ARR
+- Launch enterprise offerings
+- International expansion
+
+**Tactics:**
+- Enterprise sales team
+- International localization (10 languages)
+- API marketplace for integrations
+- Certification program
+- WordPress VIP partnership
+- Major e-commerce platform integrations
+- Strategic partnerships with hosting providers
+
+### Pricing Strategy
+
+#### Free Tier
+**Target:** Entry-level users, content creators, small blogs
+
+**Features:**
+- Basic PWA functionality
+- Up to 10,000 subscribers
+- 10,000 notifications per month
+- Standard caching strategies
+- Basic analytics
+- Community support
+- Oxford Pierpont branding visible
+
+**Purpose:** Market penetration, user acquisition, freemium conversion funnel
+
+#### Professional Tier - $49/month
+**Target:** Growing businesses, e-commerce stores, serious content sites
+
+**Features:**
+- Everything in Free
+- Unlimited subscribers
+- Unlimited notifications
+- Advanced segmentation
+- A/B testing
+- E-commerce integrations
+- Custom caching rules
+- Priority email support
+- Remove branding
+
+**Value Proposition:** $588/year vs $20K+ for custom development
+
+#### Business Tier - $149/month
+**Target:** High-traffic sites, agencies managing multiple clients
+
+**Features:**
+- Everything in Professional
+- Up to 5 sites
+- White-label capability
+- Advanced analytics
+- API access
+- Webhook integrations
+- Phone support
+- Dedicated success manager
+
+**Value Proposition:** Perfect for agencies managing client portfolios
+
+#### Enterprise Tier - Custom Pricing
+**Target:** Large corporations, major publishers, enterprise WordPress installations
+
+**Features:**
+- Everything in Business
+- Unlimited sites
+- Custom development
+- SLA guarantees (99.99% uptime)
+- 24/7 priority support
+- Dedicated infrastructure
+- Advanced security features
+- Training and certification
+- Strategic account management
+
+**Pricing Model:** Custom quotes starting at $500/month based on scale and requirements
+
+### Upgrade Path Strategy
+
+**Free to Professional:**
+- Limit notification sends in free tier to create natural upgrade trigger
+- Display subscriber count approaching limit
+- Highlight locked features contextually
+- Offer 7-day Professional trial
+- Promotional pricing for annual commitment ($470 vs $588)
+
+**Professional to Business:**
+- Target users as they add more sites
+- Showcase white-label benefits for client work
+- API access for custom integrations
+- Advanced analytics for data-driven users
+
+**Business to Enterprise:**
+- Dedicated sales outreach at scale thresholds
+- Custom pricing proposals
+- White-glove migration support
+- Strategic relationship development
+
+### Customer Acquisition Strategy
+
+#### Content Marketing
+**Blog Content:**
+- PWA implementation tutorials
+- Notification best practices
+- E-commerce optimization guides
+- WordPress performance optimization
+- Case studies and success stories
+- Industry trends and analysis
+
+**Video Content:**
+- YouTube channel with weekly uploads
+- Course on WordPress PWA development
+- Webinar series on mobile engagement
+- Client testimonial videos
+- Feature demonstration videos
+
+**SEO Strategy:**
+- Target keywords: "WordPress PWA", "WordPress push notifications", "WooCommerce notifications", "WordPress mobile app"
+- Comprehensive guides ranking for long-tail keywords
+- Schema markup for rich snippets
+- Backlink acquisition from WordPress ecosystem
+
+#### Paid Acquisition
+**Google Ads:**
+- Search campaigns for high-intent keywords
+- Display retargeting
+- YouTube video ads
+- Budget: $3K/month initial, scaling to $10K/month
+
+**Facebook/Instagram:**
+- Carousel ads showcasing features
+- Video testimonials
+- Lookalike audiences
+- Budget: $2K/month initial, scaling to $7K/month
+
+**Twitter:**
+- Promoted tweets to WordPress community
+- Developer-focused messaging
+- Budget: $1K/month
+
+#### Partnership Channels
+**Hosting Providers:**
+- Partnership with WP Engine, Kinsta, SiteGround
+- Pre-installation or recommended plugin status
+- Co-marketing opportunities
+- Revenue share agreements
+
+**WordPress Ecosystem:**
+- WooCommerce marketplace listing
+- WordPress.com plugin partnership
+- Easy Digital Downloads integration
+- Listed in official WooCommerce extensions
+
+**Agency Partnerships:**
+- Referral program (25% recurring commission)
+- White-label offerings
+- Bulk pricing discounts
+- Co-branded marketing materials
+
+### Customer Retention Strategy
+
+#### Onboarding Excellence
+- Welcome email sequence (5 emails over 14 days)
+- In-app guided tour
+- Video tutorials contextually displayed
+- Sample notifications and templates
+- Success checklist with milestones
+
+#### Ongoing Engagement
+- Monthly newsletter with tips and updates
+- Quarterly webinars on advanced features
+- Customer success check-ins at 30, 90, 180 days
+- Feature usage analytics and recommendations
+- Proactive support for inactive accounts
+
+#### Value Reinforcement
+- Monthly report showing:
+  - Subscribers gained
+  - Notification performance
+  - Estimated revenue impact
+  - Cost savings vs alternatives
+- Milestone celebrations (1000 subscribers, 10000 notifications sent)
+- Comparison to industry benchmarks
+- ROI calculator
+
+#### Churn Prevention
+- Usage monitoring and early warning signals
+- Proactive outreach before cancellation
+- Win-back campaigns for cancelled users
+- Exit surveys to understand reasons
+- Special retention offers when appropriate
+
+---
+
+## 8. Feature Requirements
+
+### 8.1 Progressive Web App Features
+
+#### 8.1.1 Web App Manifest
+
+**Priority:** P0 (Must Have)
+
+**Description:** Generate and maintain standards-compliant web app manifest file enabling PWA installation.
+
+**Functional Requirements:**
+- FR-001: System shall generate manifest.json file with all required W3C standard properties
+- FR-002: Manifest shall include configurable app name (max 45 characters)
+- FR-003: Manifest shall include configurable short name (max 12 characters)
+- FR-004: Manifest shall include configurable app description (max 255 characters)
+- FR-005: System shall support multiple icon sizes: 72x72, 96x96, 128x128, 144x144, 152x152, 192x192, 384x384, 512x512
+- FR-006: System shall accept user-uploaded icon and generate all required sizes automatically
+- FR-007: Manifest shall include configurable theme color (hex color code)
+- FR-008: Manifest shall include configurable background color (hex color code)
+- FR-009: System shall support display modes: standalone, fullscreen, minimal-ui, browser
+- FR-010: Manifest shall include configurable start URL
+- FR-011: Manifest shall include configurable scope
+- FR-012: System shall support orientation preferences: any, natural, landscape, portrait
+- FR-013: Manifest shall include categories (business, education, entertainment, etc.)
+- FR-014: System shall support screenshots for app store listings (desktop and mobile)
+- FR-015: Manifest shall be dynamically updated when configuration changes
+- FR-016: System shall properly register manifest in WordPress header
+- FR-017: Manifest shall include proper MIME type (application/manifest+json)
+
+**Technical Requirements:**
+- TR-001: Manifest must be accessible at /manifest.json or /wp-content/plugins/onesignal-pwa/manifest.json
+- TR-002: Manifest must be served with correct Content-Type header
+- TR-003: Icons must be in PNG format with proper dimensions
+- TR-004: Manifest must pass W3C validation
+- TR-005: Manifest must support both HTTP and HTTPS protocols
+- TR-006: System must handle emoji and special characters in app name
+- TR-007: Manifest must be cached appropriately with proper cache headers
+
+**User Stories:**
+- US-001: As a site owner, I want to customize my app name so users see my brand when installing
+- US-002: As a site owner, I want to upload one icon and have all sizes generated automatically so I don't need design skills
+- US-003: As a site owner, I want to choose my app colors so the PWA matches my brand identity
+- US-004: As a developer, I want to programmatically modify manifest properties so I can create custom configurations
+
+**Acceptance Criteria:**
+- AC-001: Manifest validates with W3C manifest validator
+- AC-002: App installs successfully on Chrome, Edge, Firefox, Safari
+- AC-003: Icons display correctly at all sizes on all platforms
+- AC-004: Theme color applies to browser chrome and splash screen
+- AC-005: App name displays in installation prompt and app drawer
+- AC-006: Screenshots display in installation UI where supported
+
+**Dependencies:**
+- Icon processing library (GD or ImageMagick)
+- WordPress filesystem API
+- WordPress options API for storage
+
+#### 8.1.2 Service Worker
+
+**Priority:** P0 (Must Have)
+
+**Description:** Comprehensive service worker implementation enabling offline functionality, caching, and PWA features.
+
+**Functional Requirements:**
+- FR-018: System shall generate service worker JavaScript file
+- FR-019: Service worker shall implement caching strategies:
+  - Cache First (for static assets)
+  - Network First (for dynamic content)
+  - Stale While Revalidate (for balance)
+  - Cache Only (for offline-first)
+  - Network Only (for always-fresh content)
+- FR-020: Service worker shall provide configurable cache names
+- FR-021: System shall implement versioning for service worker updates
+- FR-022: Service worker shall handle offline requests with custom offline page
+- FR-023: Service worker shall implement background sync for offline actions
+- FR-024: Service worker shall support periodic background sync
+- FR-025: Service worker shall handle push notification events
+- FR-026: Service worker shall handle notification click events
+- FR-027: System shall allow caching rules by post type, page template, URL pattern
+- FR-028: Service worker shall implement cache size limits
+- FR-029: Service worker shall implement cache cleanup on size exceeded
+- FR-030: System shall provide skip waiting option for immediate updates
+- FR-031: Service worker shall claim clients on activation
+- FR-032: System shall log service worker errors
+- FR-033: Service worker shall implement fetch event handling
+- FR-034: System shall allow excluding specific URLs from caching
+- FR-035: Service worker shall handle installation and activation lifecycle events
+
+**Technical Requirements:**
+- TR-008: Service worker must be served from appropriate scope (root or with Service-Worker-Allowed header)
+- TR-009: Service worker must support ES6 syntax
+- TR-010: Service worker must handle CORS requests properly
+- TR-011: Cache API must be used for storage
+- TR-012: Service worker must handle cache versioning to prevent stale content
+- TR-013: Service worker must implement proper error handling
+- TR-014: Service worker must be compatible with Chrome 80+, Firefox 75+, Safari 14+, Edge 80+
+- TR-015: Service worker must handle opaque responses appropriately
+- TR-016: Registration must use proper scope configuration
+- TR-017: Service worker must implement proper HTTPS validation
+
+**User Stories:**
+- US-005: As a visitor, I want pages to load instantly from cache so browsing feels app-like
+- US-006: As a visitor, I want to access content offline so I can read when disconnected
+- US-007: As a site owner, I want to control what gets cached so important content is available offline
+- US-008: As a site owner, I want to set cache limits so storage doesn't fill user devices
+- US-009: As a developer, I want to customize caching strategies so I can optimize for my use case
+
+**Acceptance Criteria:**
+- AC-007: Service worker registers successfully in all supported browsers
+- AC-008: Cached pages load in under 100ms
+- AC-009: Offline page displays when network unavailable
+- AC-010: Service worker updates when new version deployed
+- AC-011: Cache stays within configured size limits
+- AC-012: Service worker passes Lighthouse PWA audit
+
+**Dependencies:**
+- Browser Cache API support
+- Service Worker API support
+- Background Sync API (for background sync feature)
+- Periodic Background Sync API (for periodic sync)
+
+#### 8.1.3 Installation Experience
+
+**Priority:** P0 (Must Have)
+
+**Description:** User-friendly PWA installation prompts and tracking.
+
+**Functional Requirements:**
+- FR-036: System shall detect when PWA is installable
+- FR-037: System shall display customizable installation prompt based on triggers:
+  - Time on site threshold (configurable seconds)
+  - Page view count threshold
+  - Scroll depth percentage
+  - Exit intent detection
+  - Custom JavaScript event
+- FR-038: Installation prompt shall be customizable:
+  - Banner position (top, bottom, modal)
+  - Button text
+  - Headline text
+  - Description text
+  - Colors matching theme
+  - Logo/icon
+- FR-039: System shall respect user dismissal for configurable period (hours/days)
+- FR-040: System shall track installation events
+- FR-041: System shall track installation prompt displays
+- FR-042: System shall track installation prompt acceptance rate
+- FR-043: System shall track installation prompt dismissal rate
+- FR-044: System shall provide platform-specific installation instructions:
+  - Chrome/Edge desktop
+  - Chrome Android
+  - Safari iOS (Add to Home Screen)
+  - Samsung Internet
+  - Firefox
+- FR-045: System shall detect when app is already installed
+- FR-046: System shall hide installation prompts when installed
+- FR-047: System shall provide post-installation success message
+- FR-048: System shall support A/B testing of installation prompts
+- FR-049: System shall allow multiple prompt styles per site
+
+**Technical Requirements:**
+- TR-018: Must use beforeinstallprompt event for supported browsers
+- TR-019: Must detect standalone mode to identify installed apps
+- TR-020: Must handle iOS installation separately (no beforeinstallprompt)
+- TR-021: Must store prompt dismissal state in localStorage
+- TR-022: Must track events to analytics
+- TR-023: Must be accessible (keyboard navigation, screen reader support)
+- TR-024: Prompt must not interfere with page functionality
+- TR-025: Must implement proper z-index management
+
+**User Stories:**
+- US-010: As a visitor, I want to be prompted to install at the right time so I'm not annoyed
+- US-011: As a visitor, I want clear benefits explained so I understand why to install
+- US-012: As a site owner, I want to customize the installation prompt so it matches my brand
+- US-013: As a site owner, I want to control when prompts appear so users aren't interrupted
+- US-014: As a site owner, I want to track installation rates so I can optimize the prompt
+
+**Acceptance Criteria:**
+- AC-013: Installation prompt appears based on configured triggers
+- AC-014: Prompt displays correctly on mobile and desktop
+- AC-015: Dismissal respects configured wait period
+- AC-016: Installation tracking captures events accurately
+- AC-017: iOS users see appropriate Add to Home Screen instructions
+- AC-018: Prompt is accessible via keyboard
+- AC-019: Installation success rate is at least 10% of prompt displays
+
+#### 8.1.4 App Shortcuts
+
+**Priority:** P1 (Should Have)
+
+**Description:** Define quick action shortcuts accessible from installed PWA icon.
+
+**Functional Requirements:**
+- FR-050: System shall support up to 4 app shortcuts in manifest
+- FR-051: Each shortcut shall include:
+  - Name (required)
+  - Short name (optional)
+  - Description (optional)
+  - URL (required)
+  - Icons (required)
+- FR-052: System shall provide predefined shortcuts based on site type:
+  - E-commerce: Shop, Cart, Orders, Account
+  - Blog: Latest Posts, Categories, Search, Subscribe
+  - Membership: Dashboard, Profile, Courses, Community
+- FR-053: System shall allow custom shortcut creation
+- FR-054: Shortcuts shall be orderable via drag-and-drop
+- FR-055: System shall validate shortcut URLs exist
+- FR-056: Shortcut icons shall be auto-generated if not provided
+
+**Technical Requirements:**
+- TR-026: Shortcuts must follow W3C manifest specification
+- TR-027: Icons must be in 96x96 PNG format minimum
+- TR-028: URLs must be same-origin or within scope
+- TR-029: Must support monochrome icons for adaptive scenarios
+
+**User Stories:**
+- US-015: As an app user, I want quick access to key pages so I don't have to navigate
+- US-016: As a site owner, I want to define shortcuts that drive engagement
+
+**Acceptance Criteria:**
+- AC-020: Shortcuts appear in app icon long-press menu on Android
+- AC-021: Shortcuts function correctly when clicked
+- AC-022: Shortcut icons display at correct size
+
+#### 8.1.5 Share Target
+
+**Priority:** P2 (Nice to Have)
+
+**Description:** Enable users to share content from other apps to your PWA.
+
+**Functional Requirements:**
+- FR-057: System shall register PWA as share target
+- FR-058: Share target shall accept:
+  - Text content
+  - URLs
+  - Images
+  - Files
+- FR-059: System shall provide handling page for received shares
+- FR-060: Share handling shall integrate with WordPress post creation
+- FR-061: System shall support sharing to specific post types
+- FR-062: Share target shall work in installed PWA mode
+
+**Technical Requirements:**
+- TR-030: Must implement Share Target API specification
+- TR-031: Must define share_target in manifest
+- TR-032: Must handle POST requests to share target URL
+- TR-033: Must support enctype of multipart/form-data
+
+**User Stories:**
+- US-017: As an app user, I want to share content to the PWA from other apps
+- US-018: As a content creator, I want to quickly post content shared to me
+
+**Acceptance Criteria:**
+- AC-023: PWA appears in Android share sheet
+- AC-024: Shared content is received correctly
+- AC-025: Share handling page provides good UX
+
+### 8.2 OneSignal Integration Features
+
+#### 8.2.1 Core Notification System
+
+**Priority:** P0 (Must Have)
+
+**Description:** Complete integration with OneSignal REST API and Web SDK for push notifications.
+
+**Functional Requirements:**
+- FR-063: System shall integrate OneSignal REST API v1
+- FR-064: System shall integrate OneSignal Web SDK
+- FR-065: System shall support secure API key storage with encryption
+- FR-066: System shall validate API credentials on save
+- FR-067: System shall handle subscription management:
+  - Subscribe users
+  - Unsubscribe users
+  - Track subscription status
+  - Update user properties
+  - Add/remove tags
+- FR-068: System shall support sending notifications with:
+  - Title (required, max 255 characters)
+  - Message body (required, max 2048 characters)
+  - Icon image URL
+  - Large image URL
+  - Action buttons (up to 4)
+  - Custom data payload
+  - URL to open on click
+  - TTL (time to live)
+  - Priority level
+  - Badge count
+- FR-069: System shall support notification templates
+- FR-070: System shall provide template library with common templates
+- FR-071: System shall support scheduled notifications
+- FR-072: System shall support recurring notifications
+- FR-073: System shall provide notification preview
+- FR-074: System shall track notification delivery status
+- FR-075: System shall support notification categories (Android channels)
+- FR-076: System shall support custom notification sounds
+- FR-077: System shall support notification grouping via collapse_id
+- FR-078: System shall handle notification click tracking
+- FR-079: System shall support silent notifications
+- FR-080: System shall support data-only messages
+
+**Technical Requirements:**
+- TR-034: Must use HTTPS for all API communications
+- TR-035: Must implement proper error handling for API failures
+- TR-036: Must support OneSignal API rate limits
+- TR-037: Must store API keys encrypted in WordPress database
+- TR-038: Must implement proper sanitization of notification content
+- TR-039: Must handle OneSignal SDK initialization
+- TR-040: Must support both subscription on page load and manual subscription
+- TR-041: Must implement proper permission request flow
+- TR-042: Must handle notification permission denied state
+- TR-043: Must support Safari push notifications
+
+**User Stories:**
+- US-019: As a site owner, I want to send push notifications so I can engage users
+- US-020: As a site owner, I want to schedule notifications so I can plan campaigns
+- US-021: As a site owner, I want notification templates so I can save time
+- US-022: As a user, I want to control notification permissions so I'm not spammed
+- US-023: As a site owner, I want to track notification performance so I can optimize
+
+**Acceptance Criteria:**
+- AC-026: OneSignal credentials validate successfully
+- AC-027: Users can subscribe to notifications
+- AC-028: Notifications send successfully to subscribers
+- AC-029: Notification delivery tracked accurately
+- AC-030: Notification clicks tracked accurately
+- AC-031: Scheduled notifications send at correct time
+- AC-032: Templates save and load correctly
+- AC-033: Notification preview displays correctly
+
+**Dependencies:**
+- OneSignal account with API keys
+- HTTPS site (required for push notifications)
+- Compatible browser (Chrome, Firefox, Edge, Safari 16+)
+
+#### 8.2.2 User Segmentation
+
+**Priority:** P0 (Must Have)
+
+**Description:** Advanced user segmentation for targeted notification campaigns.
+
+**Functional Requirements:**
+- FR-081: System shall support creating custom segments with:
+  - Segment name
+  - Description
+  - Inclusion rules
+  - Exclusion rules
+  - Nested logic (AND/OR/NOT)
+- FR-082: System shall support segmentation by:
+  - Subscription date (date range)
+  - Last session time (date range, relative time)
+  - Session count (numeric comparison)
+  - Location (country, region, city)
+  - Language
+  - Device type (mobile, tablet, desktop)
+  - Operating system
+  - Browser
+  - WordPress user role (subscriber, customer, member, etc.)
+  - User status (logged in, logged out)
+  - Purchase history (bought product, category, amount)
+  - Cart status (active cart, abandoned cart value)
+  - Content consumption (pages viewed, posts read, categories)
+  - Custom user properties
+  - Custom tags
+- FR-083: System shall provide pre-built segment templates:
+  - All subscribers
+  - Active users (last 7 days)
+  - Inactive users (30+ days)
+  - New subscribers (last 7 days)
+  - Cart abandoners
+  - Recent purchasers
+  - High-value customers
+  - Mobile users
+  - Desktop users
+  - Specific location
+- FR-084: System shall support dynamic segments that auto-update
+- FR-085: System shall display estimated segment size before sending
+- FR-086: System shall support exporting segment lists
+- FR-087: System shall support importing segments
+- FR-088: System shall allow duplicating segments
+- FR-089: System shall track segment performance over time
+- FR-090: System shall support lookalike audiences based on high-performers
+- FR-091: System shall implement predictive segments using ML:
+  - Likely to purchase
+  - Likely to churn
+  - High engagement likelihood
+- FR-092: System shall support segment intersection and union operations
+- FR-093: System shall provide segment analytics dashboard
+
+**Technical Requirements:**
+- TR-044: Must use OneSignal filters API for segment targeting
+- TR-045: Must efficiently handle large segment calculations
+- TR-046: Must cache segment counts with appropriate TTL
+- TR-047: Must support complex boolean logic in segment rules
+- TR-048: Must validate segment rules before saving
+- TR-049: Must handle segment rules exceeding API limits
+- TR-050: Must properly serialize segment data for storage
+
+**User Stories:**
+- US-024: As a site owner, I want to target notifications to specific users so I'm relevant
+- US-025: As an e-commerce owner, I want to target cart abandoners so I can recover sales
+- US-026: As a content publisher, I want to target inactive users so I can re-engage them
+- US-027: As a membership site, I want to target by membership level so I send appropriate content
+- US-028: As a marketer, I want to see segment sizes before sending so I can estimate reach
+
+**Acceptance Criteria:**
+- AC-034: Segments create successfully with all criteria types
+- AC-035: Segment size estimates are accurate within 5%
+- AC-036: Notifications send to correct segment members
+- AC-037: Dynamic segments update automatically
+- AC-038: Pre-built segments populate correctly
+- AC-039: Segment export produces valid data file
+- AC-040: Complex multi-rule segments function correctly
+
+#### 8.2.3 Automated Messaging
+
+**Priority:** P0 (Must Have)
+
+**Description:** Automated notification campaigns triggered by user behavior and events.
+
+**Functional Requirements:**
+- FR-094: System shall support automated message workflows with:
+  - Workflow name and description
+  - Trigger conditions
+  - Filter conditions (segment)
+  - Message content
+  - Send timing
+  - Frequency caps
+  - Goals and conversion tracking
+- FR-095: System shall support triggers:
+  - User subscription
+  - User property change
+  - Tag added/removed
+  - Page visit (specific URL)
+  - Post published
+  - Comment posted
+  - User registration
+  - WooCommerce order placed
+  - WooCommerce order status change
+  - Cart abandoned (configurable time delay)
+  - Product viewed
+  - Product added to cart
+  - Form submitted
+  - Course enrolled
+  - Lesson completed
+  - Membership expiring
+  - Payment failed
+  - Custom event
+  - API webhook
+  - Scheduled time
+  - Recurring schedule
+- FR-096: System shall support delay steps in workflows:
+  - Wait X minutes/hours/days
+  - Wait until specific time
+  - Wait until user condition met
+- FR-097: System shall support conditional branching in workflows:
+  - If/then/else logic
+  - Split by user property
+  - A/B split for testing
+- FR-098: System shall support workflow goals:
+  - Notification clicked
+  - Page visited
+  - Purchase made
+  - Custom event
+- FR-099: System shall track workflow performance:
+  - Entry count
+  - Completion count
+  - Conversion rate
+  - Time to conversion
+  - Revenue attribution
+- FR-100: System shall support frequency capping:
+  - Max notifications per day/week/month
+  - Min time between messages
+  - Do-not-disturb hours
+- FR-101: System shall provide workflow templates:
+  - Welcome series
+  - Cart abandonment
+  - Browse abandonment
+  - Post-purchase follow-up
+  - Re-engagement campaign
+  - Trial expiration
+  - Renewal reminder
+- FR-102: System shall support workflow testing before activation
+- FR-103: System shall allow pausing and resuming workflows
+- FR-104: System shall support workflow versioning
+- FR-105: System shall implement send time optimization (AI-powered best send time per user)
+
+**Technical Requirements:**
+- TR-051: Must implement robust workflow engine
+- TR-052: Must use WordPress cron for scheduled checks
+- TR-053: Must handle workflow state persistence
+- TR-054: Must implement proper queue management for high volume
+- TR-055: Must handle API failures gracefully with retries
+- TR-056: Must track user journey through workflow
+- TR-057: Must support workflow migrations and updates
+- TR-058: Must implement proper locking to prevent duplicate sends
+- TR-059: Must log workflow execution for debugging
+
+**User Stories:**
+- US-029: As an e-commerce owner, I want automated cart recovery so I don't lose sales
+- US-030: As a site owner, I want welcome sequences so new subscribers get onboarded
+- US-031: As a course creator, I want to notify students of new lessons automatically
+- US-032: As a publisher, I want to re-engage inactive readers automatically
+- US-033: As a marketer, I want to test different message timing to optimize engagement
+
+**Acceptance Criteria:**
+- AC-041: Workflows trigger correctly based on conditions
+- AC-042: Delay steps execute at correct times
+- AC-043: Conditional branches route users correctly
+- AC-044: Frequency caps prevent over-messaging
+- AC-045: Workflow analytics track accurately
+- AC-046: Goal conversions attribute correctly
+- AC-047: Templates create functional workflows
+- AC-048: Send time optimization improves CTR by at least 15%
+
+#### 8.2.4 Personalization & Dynamic Content
+
+**Priority:** P1 (Should Have)
+
+**Description:** Personalized notifications with dynamic content insertion.
+
+**Functional Requirements:**
+- FR-106: System shall support personalization tokens:
+  - {{first_name}} - User's first name
+  - {{last_name}} - User's last name
+  - {{username}} - WordPress username
+  - {{email}} - User's email
+  - {{user_role}} - WordPress user role
+  - {{subscription_date}} - Date user subscribed
+  - {{last_visit}} - Last visit date
+  - {{visit_count}} - Total visit count
+  - {{city}} - User's city
+  - {{country}} - User's country
+  - {{device}} - Device type
+  - {{browser}} - Browser name
+  - Custom properties (user-defined)
+- FR-107: System shall support conditional content blocks:
+  - Show if condition met
+  - Hide if condition met
+  - Multiple conditions with AND/OR
+- FR-108: System shall support dynamic content from WordPress:
+  - Latest post title
+  - Post excerpt
+  - Product price
+  - Product stock status
+  - User account balance
+  - Points balance
+  - Cart total
+  - Order status
+- FR-109: System shall support A/B/n testing with unlimited variants
+- FR-110: System shall track performance by variant
+- FR-111: System shall support automatic winner selection based on:
+  - Click-through rate
+  - Conversion rate
+  - Custom goal
+- FR-112: System shall support progressive rollout (send to X%, then increase)
+- FR-113: System shall support holdout groups for incrementality testing
+- FR-114: System shall provide personalization preview by user segment
+- FR-115: System shall handle missing personalization data gracefully with defaults
+- FR-116: System shall support liquid templating syntax for advanced use cases
+
+**Technical Requirements:**
+- TR-060: Must implement secure token replacement
+- TR-061: Must sanitize dynamic content to prevent XSS
+- TR-062: Must cache common dynamic content appropriately
+- TR-063: Must handle API rate limits when fetching dynamic data
+- TR-064: Must implement proper fallback values
+- TR-065: Must support both server-side and client-side personalization
+- TR-066: Must track personalization token usage for reporting
+
+**User Stories:**
+- US-034: As a site owner, I want personalized notifications so users feel special
+- US-035: As an e-commerce owner, I want product info in notifications so they're relevant
+- US-036: As a marketer, I want to A/B test messages so I can optimize performance
+- US-037: As a content creator, I want latest post info automatically inserted
+
+**Acceptance Criteria:**
+- AC-049: Personalization tokens replace correctly
+- AC-050: Conditional content displays appropriately
+- AC-051: Dynamic WordPress content pulls correctly
+- AC-052: A/B tests split traffic correctly
+- AC-053: Winner selection chooses correctly based on metrics
+- AC-054: Preview shows accurate personalization per segment
+
+#### 8.2.5 In-App Messaging
+
+**Priority:** P1 (Should Have)
+
+**Description:** Display messages within the website/PWA without push notifications.
+
+**Functional Requirements:**
+- FR-117: System shall support in-app message types:
+  - Full-screen takeover
+  - Modal dialog
+  - Slide-up banner (bottom)
+  - Corner notification (top-right, bottom-right)
+  - Top bar banner
+  - Custom HTML
+- FR-118: Each message shall support:
+  - Title (optional)
+  - Body text
+  - Image/video (optional)
+  - Primary CTA button
+  - Secondary CTA button
+  - Close button
+  - Background image/color
+  - Custom CSS
+- FR-119: System shall support message targeting by:
+  - Page/post URL (exact, contains, regex)
+  - User segment
+  - User logged in status
+  - Visit count
+  - Time on page
+  - Scroll depth
+  - Exit intent
+  - Device type
+  - First visit vs returning
+- FR-120: System shall support display triggers:
+  - Page load
+  - Time delay
+  - Scroll percentage
+  - Element visible
+  - Exit intent
+  - Click on element
+  - Custom JavaScript event
+- FR-121: System shall support frequency capping for in-app messages
+- FR-122: System shall track in-app message performance:
+  - Impressions
+  - Click-through rate
+  - Conversion rate
+  - Dismissal rate
+- FR-123: System shall support A/B testing for in-app messages
+- FR-124: System shall support message scheduling (start/end date)
+- FR-125: System shall support priority/ordering when multiple messages eligible
+- FR-126: System shall support surveys and polls with:
+  - Multiple choice questions
+  - Free text responses
+  - Rating scales
+  - NPS scoring
+- FR-127: System shall integrate responses with OneSignal user properties
+
+**Technical Requirements:**
+- TR-067: Must implement non-intrusive display logic
+- TR-068: Must be accessible (keyboard navigation, ARIA labels)
+- TR-069: Must support all modern browsers
+- TR-070: Must not block page functionality
+- TR-071: Must respect user dismissal preferences
+- TR-072: Must implement proper z-index management
+- TR-073: Must be mobile-responsive
+- TR-074: Must lazy-load message content to minimize performance impact
+
+**User Stories:**
+- US-038: As a site owner, I want to display messages on-site without push so I can reach all visitors
+- US-039: As a marketer, I want to show offers to specific pages/users so I'm targeted
+- US-040: As a site owner, I want to collect feedback so I can improve
+- US-041: As a user, I want messages to be non-intrusive so my experience isn't disrupted
+
+**Acceptance Criteria:**
+- AC-055: Messages display at correct trigger points
+- AC-056: Targeting rules apply correctly
+- AC-057: Frequency capping works as configured
+- AC-058: Analytics track accurately
+- AC-059: Messages are accessible via keyboard
+- AC-060: Mobile display is properly responsive
+- AC-061: Survey responses save correctly
+
+### 8.3 WordPress Integration Features
+
+#### 8.3.1 WooCommerce Integration
+
+**Priority:** P0 (Must Have for e-commerce market)
+
+**Description:** Deep WooCommerce integration for automated e-commerce notifications.
+
+**Functional Requirements:**
+- FR-128: System shall detect WooCommerce installation
+- FR-129: System shall auto-enable e-commerce features when WooCommerce active
+- FR-130: System shall track WooCommerce events:
+  - Order placed
+  - Order status changed (processing, completed, cancelled, refunded)
+  - Payment received
+  - Payment failed
+  - Product viewed
+  - Product added to cart
+  - Cart updated
+  - Cart abandoned (configurable time threshold)
+  - Browse abandoned (viewed products but no cart action)
+  - Product back in stock
+  - Price dropped
+  - Product wishlisted
+  - Review request timing
+- FR-131: System shall send automated notifications for:
+  - Order confirmation with order details
+  - Order shipped with tracking
+  - Order delivered
+  - Order cancelled/refunded
+  - Payment issues
+  - Cart abandonment (1 hour, 3 hours, 24 hours configurable)
+  - Browse abandonment
+  - Back in stock alerts for wishlisted/viewed products
+  - Price drop alerts
+  - Product recommendations based on browsing
+  - Cross-sell/upsell after purchase
+  - Review requests (post-delivery)
+  - Loyalty program updates
+  - Points expiration
+  - Coupon delivery
+  - Flash sales for relevant categories
+- FR-132: System shall support order data in notifications:
+  - Order number
+  - Order total
+  - Order items list
+  - Order status
+  - Tracking number
+  - Delivery date
+  - Customer name
+- FR-133: System shall support product data in notifications:
+  - Product name
+  - Product image
+  - Product price
+  - Sale price
+  - Stock status
+  - Product URL
+- FR-134: System shall segment users by:
+  - Purchase history (specific products, categories, total spent)
+  - Average order value
+  - Purchase frequency
+  - Customer lifetime value
+  - Cart status and value
+  - Product views
+  - Categories browsed
+  - Last purchase date
+- FR-135: System shall support abandoned cart recovery with:
+  - Automatic cart detection
+  - Configurable abandonment time threshold
+  - Reminder sequence (1st, 2nd, 3rd reminder)
+  - Cart contents display in notification
+  - Cart total display
+  - Direct cart recovery link
+  - Discount code option
+- FR-136: System shall track conversions and attribute to notifications:
+  - Cart recovery conversions
+  - Revenue from recovered carts
+  - Revenue from promotional notifications
+  - Product recommendation conversions
+- FR-137: System shall support WooCommerce Subscriptions:
+  - Renewal reminders
+  - Payment failure notifications
+  - Subscription cancellation confirmations
+  - Subscription status changes
+- FR-138: System shall support WooCommerce Memberships:
+  - Membership tier notifications
+  - Access granted/revoked
+  - Exclusive offers for members
+- FR-139: System shall support WooCommerce Bookings:
+  - Booking confirmations
+  - Booking reminders
+  - Booking modifications
+
+**Technical Requirements:**
+- TR-075: Must hook into WooCommerce action hooks
+- TR-076: Must access WooCommerce order data properly
+- TR-077: Must handle WooCommerce HPOS (High-Performance Order Storage)
+- TR-078: Must support WooCommerce REST API v3
+- TR-079: Must properly identify guest vs registered customers
+- TR-080: Must handle WooCommerce currency and formatting
+- TR-081: Must integrate with WooCommerce cart session
+- TR-082: Must respect WooCommerce privacy settings
+
+**User Stories:**
+- US-042: As an e-commerce owner, I want automated cart recovery so I don't lose sales
+- US-043: As an e-commerce owner, I want order status updates sent automatically so customers are informed
+- US-044: As an e-commerce owner, I want back-in-stock alerts so customers buy when available
+- US-045: As a customer, I want order updates so I know what's happening
+- US-046: As an e-commerce owner, I want to track revenue from notifications so I know ROI
+
+**Acceptance Criteria:**
+- AC-062: WooCommerce events trigger notifications correctly
+- AC-063: Order data displays correctly in notifications
+- AC-064: Cart abandonment detects and sends at correct times
+- AC-065: Cart recovery links restore cart correctly
+- AC-066: Revenue attribution tracks correctly
+- AC-067: Segmentation by purchase history works correctly
+- AC-068: Product recommendations are relevant
+- AC-069: Integration doesn't slow down WooCommerce checkout
+
+**Dependencies:**
+- WooCommerce 5.0 or higher
+- WooCommerce cart persistence
+
+---
+
+## 9. Technical Architecture
+
+### 9.1 System Architecture
+
+#### High-Level Architecture
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                        WordPress                             │
+│  ┌────────────────────────────────────────────────────────┐ │
+│  │              OneSignal PWA Plugin                       │ │
+│  │                                                          │ │
+│  │  ┌──────────┐  ┌──────────┐  ┌──────────┐            │ │
+│  │  │   PWA    │  │OneSignal │  │WordPress │            │ │
+│  │  │  Module  │  │  Module  │  │Integration│            │ │
+│  │  └────┬─────┘  └────┬─────┘  └────┬─────┘            │ │
+│  │       │             │              │                   │ │
+│  │  ┌────┴─────────────┴──────────────┴─────┐           │ │
+│  │  │         Core Plugin Framework            │           │ │
+│  │  │  - Event System                          │           │ │
+│  │  │  - API Layer                             │           │ │
+│  │  │  - Database Layer                        │           │ │
+│  │  │  - Cache Layer                           │           │ │
+│  │  └──────────────────────────────────────────┘           │ │
+│  └────────────────────────────────────────────────────────┘ │
+└──────────────┬──────────────────────────────┬───────────────┘
+               │                              │
+        ┌──────┴───────┐            ┌────────┴────────┐
+        │   Browser    │            │   OneSignal     │
+        │  Service     │            │      API        │
+        │   Worker     │            └─────────────────┘
+        └──────────────┘
+```
+
+#### Component Architecture
+
+**PWA Module:**
+- Manifest Generator
+- Service Worker Generator
+- Installation Manager
+- Offline Page Manager
+- Cache Strategy Manager
+- App Shortcuts Manager
+- Share Target Handler
+
+**OneSignal Module:**
+- API Client
+- Web SDK Manager
+- Notification Manager
+- Segment Manager
+- Campaign Manager
+- Automation Engine
+- In-App Message Manager
+- Analytics Collector
+
+**WordPress Integration Module:**
+- WooCommerce Handler
+- Membership Plugin Handler
+- LMS Handler
+- Form Plugin Handler
+- SEO Plugin Handler
+- Event Plugin Handler
+- Forum Plugin Handler
+- Hook Manager
+
+**Core Framework:**
+- Event Bus
+- REST API Layer
+- Database Abstraction
+- Cache Manager
+- Settings Manager
+- Template Engine
+- Asset Manager
+- Scheduler
+- Queue Manager
+- Error Handler
+- Logger
+
+### 9.2 Database Schema
+
+#### Tables
+
+**wp_onesignal_pwa_settings**
+```sql
+CREATE TABLE wp_onesignal_pwa_settings (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    setting_key VARCHAR(255) NOT NULL UNIQUE,
+    setting_value LONGTEXT,
+    autoload VARCHAR(10) DEFAULT 'no',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_setting_key (setting_key),
+    INDEX idx_autoload (autoload)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+**wp_onesignal_pwa_subscribers**
+```sql
+CREATE TABLE wp_onesignal_pwa_subscribers (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    onesignal_id VARCHAR(255) NOT NULL UNIQUE,
+    user_id BIGINT UNSIGNED DEFAULT NULL,
+    subscription_date DATETIME NOT NULL,
+    last_session DATETIME DEFAULT NULL,
+    session_count INT DEFAULT 0,
+    device_type VARCHAR(50),
+    browser VARCHAR(50),
+    os VARCHAR(50),
+    country VARCHAR(100),
+    region VARCHAR(100),
+    city VARCHAR(100),
+    language VARCHAR(10),
+    timezone VARCHAR(50),
+    tags LONGTEXT,
+    custom_properties LONGTEXT,
+    opted_out BOOLEAN DEFAULT FALSE,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_onesignal_id (onesignal_id),
+    INDEX idx_user_id (user_id),
+    INDEX idx_subscription_date (subscription_date),
+    INDEX idx_last_session (last_session),
+    INDEX idx_device_type (device_type),
+    INDEX idx_country (country),
+    FOREIGN KEY (user_id) REFERENCES wp_users(ID) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+**wp_onesignal_pwa_notifications**
+```sql
+CREATE TABLE wp_onesignal_pwa_notifications (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    onesignal_notification_id VARCHAR(255) UNIQUE,
+    title VARCHAR(255) NOT NULL,
+    message TEXT NOT NULL,
+    url VARCHAR(2083),
+    icon VARCHAR(2083),
+    image VARCHAR(2083),
+    segment_ids TEXT,
+    filters LONGTEXT,
+    scheduled_at DATETIME,
+    sent_at DATETIME,
+    completed_at DATETIME,
+    status VARCHAR(50),
+    delivered INT DEFAULT 0,
+    clicked INT DEFAULT 0,
+    errored INT DEFAULT 0,
+    conversion_count INT DEFAULT 0,
+    revenue DECIMAL(10,2) DEFAULT 0,
+    metadata LONGTEXT,
+    created_by BIGINT UNSIGNED,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_status (status),
+    INDEX idx_scheduled_at (scheduled_at),
+    INDEX idx_sent_at (sent_at),
+    INDEX idx_created_by (created_by),
+    FOREIGN KEY (created_by) REFERENCES wp_users(ID) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+**wp_onesignal_pwa_segments**
+```sql
+CREATE TABLE wp_onesignal_pwa_segments (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    rules LONGTEXT NOT NULL,
+    is_dynamic BOOLEAN DEFAULT TRUE,
+    estimated_size INT DEFAULT 0,
+    last_calculated DATETIME,
+    created_by BIGINT UNSIGNED,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_name (name),
+    INDEX idx_created_by (created_by),
+    FOREIGN KEY (created_by) REFERENCES wp_users(ID) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+**wp_onesignal_pwa_workflows**
+```sql
+CREATE TABLE wp_onesignal_pwa_workflows (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    trigger_type VARCHAR(100) NOT NULL,
+    trigger_config LONGTEXT,
+    steps LONGTEXT NOT NULL,
+    status VARCHAR(50) DEFAULT 'draft',
+    entry_count INT DEFAULT 0,
+    completion_count INT DEFAULT 0,
+    conversion_count INT DEFAULT 0,
+    revenue DECIMAL(10,2) DEFAULT 0,
+    created_by BIGINT UNSIGNED,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    activated_at DATETIME,
+    deactivated_at DATETIME,
+    INDEX idx_status (status),
+    INDEX idx_trigger_type (trigger_type),
+    INDEX idx_created_by (created_by),
+    FOREIGN KEY (created_by) REFERENCES wp_users(ID) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+**wp_onesignal_pwa_workflow_instances**
+```sql
+CREATE TABLE wp_onesignal_pwa_workflow_instances (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    workflow_id BIGINT UNSIGNED NOT NULL,
+    subscriber_id BIGINT UNSIGNED NOT NULL,
+    current_step INT DEFAULT 0,
+    status VARCHAR(50) DEFAULT 'active',
+    started_at DATETIME NOT NULL,
+    completed_at DATETIME,
+    converted BOOLEAN DEFAULT FALSE,
+    conversion_value DECIMAL(10,2),
+    metadata LONGTEXT,
+    INDEX idx_workflow_id (workflow_id),
+    INDEX idx_subscriber_id (subscriber_id),
+    INDEX idx_status (status),
+    FOREIGN KEY (workflow_id) REFERENCES wp_onesignal_pwa_workflows(id) ON DELETE CASCADE,
+    FOREIGN KEY (subscriber_id) REFERENCES wp_onesignal_pwa_subscribers(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+**wp_onesignal_pwa_analytics**
+```sql
+CREATE TABLE wp_onesignal_pwa_analytics (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    event_type VARCHAR(100) NOT NULL,
+    event_data LONGTEXT,
+    subscriber_id BIGINT UNSIGNED,
+    notification_id BIGINT UNSIGNED,
+    workflow_id BIGINT UNSIGNED,
+    session_id VARCHAR(255),
+    page_url VARCHAR(2083),
+    referrer_url VARCHAR(2083),
+    device_type VARCHAR(50),
+    browser VARCHAR(50),
+    os VARCHAR(50),
+    country VARCHAR(100),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_event_type (event_type),
+    INDEX idx_subscriber_id (subscriber_id),
+    INDEX idx_notification_id (notification_id),
+    INDEX idx_workflow_id (workflow_id),
+    INDEX idx_created_at (created_at),
+    FOREIGN KEY (subscriber_id) REFERENCES wp_onesignal_pwa_subscribers(id) ON DELETE SET NULL,
+    FOREIGN KEY (notification_id) REFERENCES wp_onesignal_pwa_notifications(id) ON DELETE SET NULL,
+    FOREIGN KEY (workflow_id) REFERENCES wp_onesignal_pwa_workflows(id) ON DELETE SET NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+**wp_onesignal_pwa_cache**
+```sql
+CREATE TABLE wp_onesignal_pwa_cache (
+    cache_key VARCHAR(255) NOT NULL PRIMARY KEY,
+    cache_value LONGTEXT NOT NULL,
+    expires_at DATETIME NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_expires_at (expires_at)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+```
+
+### 9.3 API Architecture
+
+#### REST API Endpoints
+
+**Authentication:**
+- All API requests require WordPress REST API authentication
+- Support for Application Passwords
+- Support for OAuth 2.0
+- JWT token support for external integrations
+
+**Endpoints:**
+
+```
+GET    /wp-json/onesignal-pwa/v1/status
+GET    /wp-json/onesignal-pwa/v1/settings
+PUT    /wp-json/onesignal-pwa/v1/settings
+GET    /wp-json/onesignal-pwa/v1/manifest
+GET    /wp-json/onesignal-pwa/v1/subscribers
+GET    /wp-json/onesignal-pwa/v1/subscribers/{id}
+PUT    /wp-json/onesignal-pwa/v1/subscribers/{id}
+DELETE /wp-json/onesignal-pwa/v1/subscribers/{id}
+GET    /wp-json/onesignal-pwa/v1/segments
+POST   /wp-json/onesignal-pwa/v1/segments
+GET    /wp-json/onesignal-pwa/v1/segments/{id}
+PUT    /wp-json/onesignal-pwa/v1/segments/{id}
+DELETE /wp-json/onesignal-pwa/v1/segments/{id}
+GET    /wp-json/onesignal-pwa/v1/segments/{id}/size
+GET    /wp-json/onesignal-pwa/v1/notifications
+POST   /wp-json/onesignal-pwa/v1/notifications
+GET    /wp-json/onesignal-pwa/v1/notifications/{id}
+DELETE /wp-json/onesignal-pwa/v1/notifications/{id}
+GET    /wp-json/onesignal-pwa/v1/notifications/{id}/stats
+GET    /wp-json/onesignal-pwa/v1/workflows
+POST   /wp-json/onesignal-pwa/v1/workflows
+GET    /wp-json/onesignal-pwa/v1/workflows/{id}
+PUT    /wp-json/onesignal-pwa/v1/workflows/{id}
+DELETE /wp-json/onesignal-pwa/v1/workflows/{id}
+POST   /wp-json/onesignal-pwa/v1/workflows/{id}/activate
+POST   /wp-json/onesignal-pwa/v1/workflows/{id}/deactivate
+GET    /wp-json/onesignal-pwa/v1/workflows/{id}/stats
+GET    /wp-json/onesignal-pwa/v1/analytics/overview
+GET    /wp-json/onesignal-pwa/v1/analytics/subscribers
+GET    /wp-json/onesignal-pwa/v1/analytics/notifications
+GET    /wp-json/onesignal-pwa/v1/analytics/conversions
+POST   /wp-json/onesignal-pwa/v1/events
+```
+
+#### GraphQL API (Optional)
+
+Support GraphQL queries for complex data requirements:
+
+```graphql
+query {
+  subscribers(filters: {...}, limit: 50) {
+    id
+    subscriptionDate
+    lastSession
+    tags
+    segments
+  }
+  
+  notifications(status: "sent", limit: 20) {
+    id
+    title
+    message
+    stats {
+      delivered
+      clicked
+      conversionRate
+    }
+  }
+}
+
+mutation {
+  sendNotification(
+    title: "Welcome!"
+    message: "Thanks for subscribing"
+    segments: ["new_subscribers"]
+  ) {
+    id
+    scheduled
+  }
+}
+```
+
+### 9.4 Service Worker Architecture
+
+**Service Worker File Structure:**
+
+```javascript
+// service-worker.js (dynamically generated)
+
+// Configuration from WordPress
+const CONFIG = {
+  version: '1.0.0',
+  cacheName: 'onesignal-pwa-v1',
+  offlinePage: '/offline/',
+  cacheFirst: [/\.(?:png|jpg|jpeg|svg|gif|webp|woff2?)$/],
+  networkFirst: [/\/wp-json\//, /\/wp-admin\//],
+  staleWhileRevalidate: [/\.(?:js|css)$/]
+};
+
+// Import OneSignal service worker if configured
+if (typeof importScripts === 'function') {
+  importScripts('https://cdn.onesignal.com/sdks/OneSignalSDKWorker.js');
+}
+
+// Installation
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CONFIG.cacheName)
+      .then(cache => cache.addAll([
+        CONFIG.offlinePage,
+        // ... other critical resources
+      ]))
+      .then(() => self.skipWaiting())
+  );
+});
+
+// Activation
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys()
+      .then(keys => Promise.all(
+        keys.filter(key => key !== CONFIG.cacheName)
+          .map(key => caches.delete(key))
+      ))
+      .then(() => self.clients.claim())
+  );
+});
+
+// Fetch Strategy Router
+self.addEventListener('fetch', event => {
+  const { request } = event;
+  const url = new URL(request.url);
+  
+  // Determine strategy based on URL pattern
+  if (matchesPattern(url, CONFIG.cacheFirst)) {
+    event.respondWith(cacheFirst(request));
+  } else if (matchesPattern(url, CONFIG.networkFirst)) {
+    event.respondWith(networkFirst(request));
+  } else if (matchesPattern(url, CONFIG.staleWhileRevalidate)) {
+    event.respondWith(staleWhileRevalidate(request));
+  } else {
+    event.respondWith(networkFirst(request));
+  }
+});
+
+// Push Event (integrated with OneSignal)
+self.addEventListener('push', event => {
+  // OneSignal handles this automatically
+  // Custom handling if needed
+});
+
+// Notification Click
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+  
+  // Track click in analytics
+  trackNotificationClick(event.notification.data);
+  
+  // Open URL
+  event.waitUntil(
+    clients.openWindow(event.notification.data.url || '/')
+  );
+});
+
+// Background Sync
+self.addEventListener('sync', event => {
+  if (event.tag === 'sync-analytics') {
+    event.waitUntil(syncAnalytics());
+  }
+});
+
+// Periodic Background Sync
+self.addEventListener('periodicsync', event => {
+  if (event.tag === 'content-update') {
+    event.waitUntil(updateContent());
+  }
+});
+
+// Caching Strategies Implementation
+function cacheFirst(request) { ... }
+function networkFirst(request) { ... }
+function staleWhileRevalidate(request) { ... }
+```
+
+### 9.5 Security Architecture
+
+**Encryption:**
+- API keys encrypted using WordPress salts
+- AES-256 encryption for sensitive data
+- Secure key storage in wp_options with autoload=no
+
+**Authentication:**
+- WordPress nonce verification for all admin AJAX requests
+- Capability checks for all privileged operations
+- REST API authentication using WordPress auth
+- OAuth 2.0 support for external integrations
+
+**Data Validation:**
+- Input sanitization using WordPress sanitize functions
+- Output escaping using WordPress escape functions
+- Prepared statements for all database queries
+- CSRF protection on all forms
+
+**API Security:**
+- Rate limiting (100 requests/minute per user)
+- IP-based throttling for unauthenticated requests
+- Request signature verification for webhooks
+- CORS headers properly configured
+
+**Privacy:**
+- GDPR-compliant data handling
+- User consent management
+- Data export functionality
+- Data deletion functionality
+- Audit logging for compliance
+
+---
+
+## 10. User Experience & Interface Design
+
+### 10.1 Design Principles
+
+**Simplicity First:**
+- Zero configuration option using intelligent defaults
+- Progressive disclosure of advanced features
+- Clear visual hierarchy
+- Minimal cognitive load
+
+**WordPress Native:**
+- Follow WordPress admin design patterns
+- Use WordPress UI components where possible
+- Match WordPress color schemes
+- Consistent with WordPress UX conventions
+
+**Task-Oriented:**
+- Organize by user goals, not technical features
+- Clear calls-to-action
+- Contextual help at point of need
+- Wizards for complex tasks
+
+**Responsive:**
+- Mobile-first admin design
+- Touch-friendly controls
+- Accessible on all devices
+- Adaptive layouts
+
+**Performance:**
+- Lazy-load admin UI components
+- Minimize HTTP requests
+- Optimize images and assets
+- Fast admin page loads
+
+### 10.2 Information Architecture
+
+**Main Navigation:**
+
+```
+OneSignal PWA
+├── Dashboard
+├── Send Notification
+├── Notifications
+│   ├── All Notifications
+│   ├── Scheduled
+│   └── Templates
+├── Workflows
+│   ├── All Workflows
+│   ├── Create Workflow
+│   └── Templates
+├── Subscribers
+│   ├── All Subscribers
+│   ├── Segments
+│   └── Tags
+├── Analytics
+│   ├── Overview
+│   ├── Notifications
+│   ├── Subscribers
+│   ├── Conversions
+│   └── Reports
+├── PWA Settings
+│   ├── App Configuration
+│   ├── Icons & Assets
+│   ├── Service Worker
+│   ├── Installation
+│   └── Offline Page
+├── Integrations
+│   ├── WooCommerce
+│   ├── Membership
+│   ├── LMS
+│   ├── Forms
+│   └── Other
+└── Settings
+    ├── OneSignal API
+    ├── General
+    ├── Permissions
+    └── Advanced
+```
+
+### 10.3 Key Screens
+
+#### Dashboard
+
+**Purpose:** At-a-glance view of PWA and notification performance
+
+**Components:**
+- Welcome message for new users
+- Quick stats cards:
+  - Total subscribers
+  - PWA installations
+  - Notifications sent (today/this week/this month)
+  - Average CTR
+  - Total conversions
+  - Estimated revenue impact
+- Recent notifications list
+- Subscriber growth chart (7/30/90 days)
+- Quick actions:
+  - Send notification
+  - Create workflow
+  - View analytics
+- Setup checklist (for incomplete setups)
+- Tips & tricks section
+- Latest plugin updates/news
+
+#### Send Notification Screen
+
+**Purpose:** Quick notification sending with preview
+
+**Layout:**
+- Left column (60%): Notification composer
+  - Title field (with character count)
+  - Message field (with character count)
+  - URL field
+  - Icon upload (optional)
+  - Large image upload (optional)
+  - Action buttons (optional, expandable)
+  - Advanced options (collapsible):
+    - TTL
+    - Priority
+    - Badge
+    - Sound
+    - Custom data
+- Right column (40%): Live preview
+  - Preview on different devices (mobile, desktop)
+  - Preview as different OS (Android, iOS, Windows, Mac)
+  - Switch preview mode
+- Bottom section:
+  - Audience selector (All/Segments/Test)
+  - Segment size estimate
+  - Schedule options (Send now / Schedule / Recurring)
+  - Send button (primary CTA)
+  - Save as template button
+
+#### Workflow Builder
+
+**Purpose:** Visual workflow creation
+
+**Layout:**
+- Top toolbar:
+  - Workflow name (editable)
+  - Status (Draft/Active/Paused)
+  - Save button
+  - Activate/Deactivate toggle
+  - Preview button
+- Left sidebar (20%):
+  - Trigger options (draggable)
+  - Action options (draggable)
+  - Logic options (draggable)
+- Center canvas (60%):
+  - Visual workflow builder
+  - Drag-and-drop interface
+  - Connection lines between steps
+  - Step configuration on click
+- Right sidebar (20%):
+  - Selected step properties
+  - Step configuration form
+  - Delete step button
+  - Duplicate step button
+
+#### Subscribers Screen
+
+**Purpose:** Subscriber management and segmentation
+
+**Layout:**
+- Tabs: All Subscribers / Segments / Tags
+- Filters:
+  - Date range
+  - Device type
+  - Location
+  - User status
+  - Tags
+  - Custom properties
+- Data table:
+  - OneSignal ID
+  - User (if linked to WP user)
+  - Subscription date
+  - Last session
+  - Device
+  - Location
+  - Tags
+  - Actions (view details, unsubscribe, delete)
+- Bulk actions
+- Export button
+- Create segment button (opens modal with current filters)
+
+#### Analytics Dashboard
+
+**Purpose:** Comprehensive performance analytics
+
+**Layout:**
+- Date range selector (global)
+- Key metrics cards (top row):
+  - New subscribers
+  - Total notifications sent
+  - Average delivery rate
+  - Average CTR
+  - Total conversions
+  - Total revenue
+- Charts section:
+  - Subscriber growth over time (line chart)
+  - Notifications sent vs clicks (dual-axis line chart)
+  - Device breakdown (pie chart)
+  - Location heatmap
+  - Top performing notifications (bar chart)
+  - Conversion funnel (funnel chart)
+- Tables:
+  - Recent notifications with performance
+  - Top segments by engagement
+  - Workflow performance
+- Export report button
+
+#### PWA Settings - App Configuration
+
+**Purpose:** Configure PWA manifest properties
+
+**Layout:**
+- App Identity section:
+  - App name field
+  - Short name field
+  - Description textarea
+  - Preview of install prompt
+- Visual Branding section:
+  - Icon uploader (with auto-generation)
+  - Icon preview grid (all sizes)
+  - Theme color picker
+  - Background color picker
+  - Display mode selector
+  - Orientation selector
+- App Features section:
+  - Screenshots uploader (desktop & mobile)
+  - Categories multi-select
+  - Language selector
+  - Related applications (advanced, collapsible)
+- Save button (sticky footer)
+
+---
+
+## 11. Integration Requirements
+
+### 11.1 Core WordPress Integrations
+
+**WordPress Core Hooks:**
+- `init` - Initialize plugin
+- `admin_menu` - Register admin pages
+- `admin_enqueue_scripts` - Load admin assets
+- `wp_enqueue_scripts` - Load frontend assets
+- `wp_head` - Register manifest and meta tags
+- `wp_footer` - Register service worker
+- `rest_api_init` - Register REST endpoints
+- `user_register` - Track new user registrations
+- `wp_login` - Track user logins
+- `comment_post` - Track comments
+- `publish_post` - Track content publication
+
+**WordPress REST API:**
+- Extend REST API with custom endpoints
+- Add custom fields to existing endpoints
+- Implement authentication for external integrations
+
+### 11.2 E-commerce Integrations
+
+**WooCommerce:**
+- Hooks: `woocommerce_*` action and filter hooks
+- Order management
+- Cart tracking
+- Product views
+- Stock monitoring
+- Customer segmentation
+
+**Easy Digital Downloads:**
+- Hooks: `edd_*` action hooks
+- Purchase notifications
+- Download delivery
+- License management
+- Subscription renewals
+
+### 11.3 Membership & Learning Integrations
+
+**MemberPress:**
+- Member onboarding
+- Renewal reminders
+- Access notifications
+- Content drip alerts
+
+**LearnDash:**
+- Course enrollment
+- Lesson completion
+- Quiz results
+- Certificate awards
+- Assignment reminders
+
+**LifterLMS:**
+- Similar to LearnDash integration
+
+**Tutor LMS:**
+- Similar to LearnDash integration
+
+### 11.4 Community & Social Integrations
+
+**BuddyPress / BuddyBoss:**
+- Friend requests
+- Private messages
+- Activity mentions
+- Group notifications
+
+**bbPress / wpForo:**
+- Topic replies
+- Forum subscriptions
+- Mentions
+- Private messages
+
+### 11.5 Form Integrations
+
+**Contact Form 7:**
+- Submission notifications
+- Admin alerts
+
+**Gravity Forms:**
+- Form completion
+- Multi-step progress
+- Abandonment recovery
+
+**WPForms:**
+- Similar to Gravity Forms
+
+**Ninja Forms:**
+- Similar to Gravity Forms
+
+**Formidable Forms:**
+- Similar to Gravity Forms
+
+### 11.6 SEO & Content Integrations
+
+**Yoast SEO:**
+- Content publication notifications
+- SEO score alerts (for admins)
+
+**Rank Math:**
+- Similar to Yoast integration
+
+**All in One SEO:**
+- Similar to Yoast integration
+
+### 11.7 Event & Booking Integrations
+
+**The Events Calendar:**
+- Event reminders
+- Ticket confirmations
+- Event updates
+- RSVP notifications
+
+**Event Espresso:**
+- Similar to Events Calendar
+
+**Events Manager:**
+- Similar to Events Calendar
+
+### 11.8 Translation Integrations
+
+**WPML:**
+- Language-specific notifications
+- Translation management
+
+**Polylang:**
+- Similar to WPML
+
+**TranslatePress:**
+- Language detection and routing
+
+### 11.9 Page Builder Integrations
+
+**Elementor:**
+- Widget for subscription
+- Template compatibility
+
+**Divi:**
+- Module for subscription
+- Theme compatibility
+
+**WPBakery:**
+- Element for subscription
+- Template compatibility
+
+### 11.10 Email Marketing Integrations
+
+**Mailchimp:**
+- Sync subscribers
+- Coordinate campaigns
+
+**ConvertKit:**
+- Similar to Mailchimp
+
+**ActiveCampaign:**
+- Similar to Mailchimp
+
+### 11.11 Analytics Integrations
+
+**Google Analytics:**
+- Event tracking
+- Conversion tracking
+- Custom dimensions
+
+**Google Tag Manager:**
+- Event pushing
+- DataLayer integration
+
+**Facebook Pixel:**
+- Event tracking
+- Conversion tracking
+
+### 11.12 CDN Integrations
+
+**Cloudflare:**
+- Cache management
+- Asset optimization
+
+**StackPath:**
+- Similar to Cloudflare
+
+**BunnyCDN:**
+- Similar to Cloudflare
+
+### 11.13 Security Integrations
+
+**Wordfence:**
+- Security event notifications
+
+**Sucuri:**
+- Similar to Wordfence
+
+**iThemes Security:**
+- Similar to Wordfence
+
+### 11.14 Hosting Provider Integrations
+
+**WP Engine:**
+- Optimized configuration
+- Pre-installation
+
+**Kinsta:**
+- Similar to WP Engine
+
+**SiteGround:**
+- Similar to WP Engine
+
+**Flywheel:**
+- Similar to WP Engine
+
+---
+
+## 12. Security & Privacy
+
+### 12.1 Security Measures
+
+**Authentication & Authorization:**
+- WordPress capability checks
+- Nonce verification
+- Role-based access control
+- Two-factor authentication support
+- Session management
+
+**Data Protection:**
+- API key encryption (AES-256)
+- Secure credential storage
+- HTTPS enforcement
+- SSL/TLS verification
+- Database encryption for sensitive fields
+
+**Input Validation:**
+- Sanitization of all inputs
+- Validation against expected formats
+- Type checking
+- Length restrictions
+- XSS prevention
+
+**Output Protection:**
+- Escaping all output
+- Contextual escaping
+- Content Security Policy
+- X-Frame-Options headers
+- X-Content-Type-Options headers
+
+**SQL Injection Prevention:**
+- Prepared statements
+- $wpdb->prepare() usage
+- No direct queries
+- Input sanitization
+
+**CSRF Protection:**
+- WordPress nonces
+- Token validation
+- Referer checking
+
+**Rate Limiting:**
+- Request throttling
+- IP-based limits
+- User-based limits
+- Brute force protection
+
+**File Upload Security:**
+- File type validation
+- Size restrictions
+- Malware scanning integration
+- Secure file storage
+
+**API Security:**
+- Authentication required
+- Rate limiting
+- Request signing
+- CORS configuration
+- IP whitelisting option
+
+### 12.2 Privacy & Compliance
+
+**GDPR Compliance:**
+- Privacy by design
+- Data minimization
+- Purpose limitation
+- Storage limitation
+- User consent management
+- Right to access
+- Right to rectification
+- Right to erasure
+- Right to data portability
+- Right to object
+- Privacy policy generator
+- DPO contact integration
+
+**CCPA Compliance:**
+- Do Not Sell opt-out
+- Data disclosure
+- Deletion rights
+- Opt-out mechanisms
+
+**Cookie Consent:**
+- Integration with consent plugins
+- Respect consent choices
+- Cookie documentation
+
+**Data Retention:**
+- Configurable retention periods
+- Automatic data cleanup
+- Archive before delete option
+
+**Privacy Controls:**
+- Granular permission settings
+- Anonymous analytics option
+- IP address anonymization
+- Location tracking toggle
+
+**Audit Logging:**
+- User action tracking
+- Data access logging
+- Configuration change logs
+- Export logs for compliance
+
+**Data Processing Agreements:**
+- DPA template generator
+- Subprocessor listing
+- GDPR Article 28 compliance
+
+### 12.3 Security Best Practices
+
+**Code Security:**
+- WordPress Coding Standards
+- OWASP Top 10 prevention
+- Regular security audits
+- Penetration testing
+- Bug bounty program
+
+**Dependency Management:**
+- Keep dependencies updated
+- Security vulnerability scanning
+- Vendor security monitoring
+
+**Monitoring:**
+- Error logging
+- Security event logging
+- Failed login tracking
+- Suspicious activity alerts
+
+**Incident Response:**
+- Security incident plan
+- Breach notification procedures
+- Recovery procedures
+- Communication templates
+
+---
+
+## 13. Performance Requirements
+
+### 13.1 Response Time Requirements
+
+**Admin Interface:**
+- Page load: < 1 second
+- AJAX requests: < 500ms
+- Dashboard load: < 2 seconds
+- Notification send: < 3 seconds
+- Analytics load: < 3 seconds
+
+**Frontend:**
+- Service worker registration: < 100ms
+- Manifest load: < 50ms
+- Installation prompt: < 200ms
+- Subscription prompt: < 300ms
+- No impact on page load time
+
+**API:**
+- REST API calls: < 500ms
+- GraphQL queries: < 1 second
+- Webhook delivery: < 2 seconds
+
+**OneSignal Integration:**
+- Notification delivery: < 30 seconds
+- API calls: < 1 second
+- SDK initialization: < 500ms
+
+### 13.2 Throughput Requirements
+
+**Notifications:**
+- Support sending to 1M+ subscribers
+- Handle 100+ notifications per minute
+- Queue capacity: 10,000 pending sends
+
+**Analytics:**
+- Track 10M+ events per month
+- Process 1,000 events per second
+- Real-time dashboard updates (< 5 min delay)
+
+**Database:**
+- Support 10M+ subscriber records
+- Handle 1M+ notifications
+- Query performance: < 100ms for most queries
+
+### 13.3 Scalability Requirements
+
+**Horizontal Scaling:**
+- Support WordPress multisite
+- Handle distributed environments
+- Load balancer compatible
+
+**Database Scaling:**
+- Efficient indexing strategy
+- Query optimization
+- Archive old data strategy
+- Partitioning for large tables
+
+**Caching:**
+- Object cache support (Redis, Memcached)
+- Transient caching
+- CDN integration
+- Database query caching
+
+**Resource Optimization:**
+- Lazy loading
+- Asset minification
+- Code splitting
+- Database query reduction
+
+### 13.4 Reliability Requirements
+
+**Uptime:**
+- 99.9% plugin availability
+- Graceful degradation on failures
+- No single points of failure
+
+**Error Handling:**
+- Comprehensive error catching
+- Graceful fallbacks
+- User-friendly error messages
+- Admin error notifications
+
+**Data Integrity:**
+- Transaction management
+- Rollback capabilities
+- Data validation
+- Backup integration
+
+---
+
+## 14. Quality Assurance
+
+### 14.1 Testing Strategy
+
+**Unit Testing:**
+- PHPUnit for PHP code
+- Jest for JavaScript
+- 80%+ code coverage target
+- Automated test runs on commits
+
+**Integration Testing:**
+- WordPress integration tests
+- OneSignal API integration tests
+- Third-party plugin integration tests
+- Database interaction tests
+
+**End-to-End Testing:**
+- Selenium/Playwright for browser automation
+- Critical user journey testing
+- Cross-browser testing
+- Mobile device testing
+
+**Performance Testing:**
+- Load testing with 100K+ subscribers
+- Stress testing notification sending
+- Database performance testing
+- API endpoint performance testing
+
+**Security Testing:**
+- Static code analysis
+- Dependency vulnerability scanning
+- Penetration testing (annually)
+- Security audit (before major releases)
+
+**Compatibility Testing:**
+- WordPress versions (5.8+)
+- PHP versions (7.4, 8.0, 8.1, 8.2)
+- MySQL versions (5.7+, 8.0+)
+- Popular themes and plugins
+- Browsers (Chrome, Firefox, Edge, Safari)
+- Devices (iOS, Android, Desktop)
+
+**Accessibility Testing:**
+- WCAG 2.1 AA compliance
+- Screen reader testing
+- Keyboard navigation testing
+- Color contrast verification
+
+**User Acceptance Testing:**
+- Beta testing program
+- Feedback collection
+- Bug reporting
+- Feature validation
+
+### 14.2 Quality Metrics
+
+**Code Quality:**
+- Code coverage: > 80%
+- Cyclomatic complexity: < 10
+- Duplication: < 5%
+- Technical debt ratio: < 5%
+
+**Performance:**
+- Page load time: < 1s (admin), < 100ms impact (frontend)
+- API response time: < 500ms (p95)
+- Database query time: < 100ms (p95)
+- Memory usage: < 50MB
+
+**Reliability:**
+- Bug escape rate: < 5%
+- Mean time to recovery: < 4 hours
+- Defect density: < 1 per KLOC
+
+**User Satisfaction:**
+- Plugin rating: > 4.5 stars
+- Support satisfaction: > 90%
+- NPS score: > 50
+
+---
+
+## 15. Development Roadmap
+
+### Phase 1: Foundation (Months 1-3)
+
+**Month 1: Core Infrastructure**
+- Project setup and architecture
+- Database schema design and implementation
+- Core plugin framework
+- Admin menu structure
+- Settings management system
+- Basic manifest generation
+- Service worker skeleton
+
+**Month 2: PWA Features**
+- Complete manifest generation with all properties
+- Service worker implementation with caching strategies
+- Offline page functionality
+- Installation prompt system
+- Icon generation and management
+- App shortcuts
+- Basic PWA analytics
+
+**Month 3: OneSignal Core Integration**
+- OneSignal API client
+- Web SDK integration
+- Subscription management
+- Basic notification sending
+- Notification templates
+- Scheduled notifications
+- Basic segmentation
+
+**Deliverable:** MVP with core PWA and basic notification functionality
+
+### Phase 2: Enhanced Features (Months 4-6)
+
+**Month 4: Advanced Segmentation & Analytics**
+- Advanced segment builder
+- Pre-built segments
+- Dynamic segments
+- Comprehensive analytics dashboard
+- Real-time metrics
+- Export functionality
+
+**Month 5: Workflow Automation**
+- Workflow engine
+- Visual workflow builder
+- Behavioral triggers
+- Delay and conditional logic
+- Workflow templates
+- Cart abandonment workflow
+- Welcome series
+
+**Month 6: WooCommerce Integration**
+- Complete WooCommerce hooks integration
+- Order notifications
+- Cart abandonment detection and recovery
+- Product recommendation system
+- Browse abandonment
+- Stock alerts
+- Review requests
+
+**Deliverable:** Feature-complete product with automation and e-commerce
+
+### Phase 3: Extended Integrations (Months 7-9)
+
+**Month 7: Membership & Learning**
+- MemberPress integration
+- LearnDash integration
+- LifterLMS integration
+- Member onboarding workflows
+- Course completion notifications
+- Renewal reminders
+
+**Month 8: Community & Content**
+- BuddyPress/BuddyBoss integration
+- bbPress/wpForo integration
+- Yoast SEO integration
+- Form plugin integrations
+- Event plugin integrations
+
+**Month 9: Polish & Optimization**
+- Performance optimization
+- UI/UX refinements
+- Additional translations
+- Documentation completion
+- Video tutorials
+
+**Deliverable:** Comprehensive integration ecosystem
+
+### Phase 4: Enterprise Features (Months 10-12)
+
+**Month 10: Advanced Features**
+- Geolocation and geofencing
+- In-app messaging
+- A/B testing enhancements
+- Machine learning features
+- Predictive segments
+- Send time optimization
+
+**Month 11: Multisite & White Label**
+- WordPress multisite support
+- Network admin interface
+- White-label capabilities
+- Agency tools
+- Client portal
+
+**Month 12: Launch Preparation**
+- Security audit
+- Performance testing at scale
+- Beta testing program
+- Marketing materials
+- Launch campaign preparation
+
+**Deliverable:** Enterprise-ready product for public launch
+
+### Post-Launch: Continuous Improvement
+
+**Ongoing:**
+- Bug fixes and patches
+- Feature enhancements based on feedback
+- New plugin integrations
+- Security updates
+- Performance optimizations
+- Documentation updates
+- Community engagement
+
+---
+
+## 16. Success Metrics
+
+### 16.1 Product Metrics
+
+**Adoption Metrics:**
+- Active installations: Target 100,000 in Year 1
+- Monthly active users: 80% of installations
+- Average session length in admin: > 5 minutes
+- Feature adoption rate: > 60% for core features
+
+**Engagement Metrics:**
+- Notifications sent per site: Average 1,000/month
+- Workflows created per site: Average 3
+- Segments created per site: Average 5
+- API calls per day: 1M+ by end of Year 1
+
+**Retention Metrics:**
+- 30-day retention: > 70%
+- 90-day retention: > 50%
+- 365-day retention: > 40%
+- Churn rate: < 5% monthly
+
+**Performance Metrics:**
+- Average notification CTR: > 10%
+- Average PWA installation rate: > 15%
+- Cart recovery rate (WooCommerce): > 15%
+- System uptime: > 99.9%
+
+### 16.2 Business Metrics
+
+**Revenue Metrics:**
+- Year 1 ARR: $1.5M
+- Year 2 ARR: $3.8M
+- Year 3 ARR: $7.6M
+- Free to paid conversion: > 10%
+- Average revenue per user (ARPU): $200/year
+
+**Growth Metrics:**
+- Month-over-month growth: > 20%
+- Customer acquisition cost (CAC): < $100
+- Lifetime value (LTV): > $1,000
+- LTV:CAC ratio: > 10:1
+
+**Market Metrics:**
+- WordPress.org rating: > 4.5 stars
+- Number of reviews: 1,000+ in Year 1
+- Market share: 15% of WordPress PWA market
+- Brand awareness: 50% of target market familiar
+
+### 16.3 Customer Success Metrics
+
+**Value Delivered:**
+- Average increase in return visitor rate: 40%
+- Average cart recovery rate: 15%
+- Average notification engagement: 10%+ CTR
+- Average revenue attributed to plugin: $5K/month per site
+
+**Satisfaction Metrics:**
+- Net Promoter Score (NPS): > 50
+- Customer satisfaction (CSAT): > 90%
+- Support ticket resolution time: < 24 hours
+- Support satisfaction: > 90%
+
+**Usage Metrics:**
+- Time to first notification sent: < 30 minutes
+- Setup completion rate: > 80%
+- Active feature usage: > 60% of available features
+- Return to dashboard frequency: > 3 times per week
+
+---
+
+## 17. Risk Management
+
+### 17.1 Technical Risks
+
+**Risk: OneSignal API Changes**
+- **Probability:** Medium
+- **Impact:** High
+- **Mitigation:**
+  - Monitor OneSignal changelog closely
+  - Maintain versioned API implementations
+  - Build abstraction layer for easy API swapping
+  - Establish OneSignal partner relationship
+  - Maintain test suite validating API integration
+
+**Risk: Browser Compatibility Issues**
+- **Probability:** High
+- **Impact:** Medium
+- **Mitigation:**
+  - Extensive browser testing
+  - Progressive enhancement approach
+  - Feature detection before usage
+  - Graceful degradation
+  - Clear browser support documentation
+
+**Risk: Performance Degradation at Scale**
+- **Probability:** Medium
+- **Impact:** High
+- **Mitigation:**
+  - Load testing before launch
+  - Database query optimization
+  - Caching strategy
+  - CDN integration
+  - Queue management for high volume
+
+**Risk: WordPress Core Changes**
+- **Probability:** Medium
+- **Impact:** Medium
+- **Mitigation:**
+  - Follow WordPress development closely
+  - Test against beta versions
+  - Use stable WordPress APIs
+  - Avoid deprecated functions
+  - Community engagement
+
+**Risk: Security Vulnerabilities**
+- **Probability:** Low
+- **Impact:** Critical
+- **Mitigation:**
+  - Security audit before launch
+  - Penetration testing
+  - Code review process
+  - Automated vulnerability scanning
+  - Bug bounty program
+  - Rapid security patch process
+
+### 17.2 Business Risks
+
+**Risk: Low Market Adoption**
+- **Probability:** Medium
+- **Impact:** High
+- **Mitigation:**
+  - Extensive market research
+  - Beta testing program
+  - Freemium model for low barrier to entry
+  - Strong marketing campaign
+  - Partnership with hosting providers
+  - Content marketing strategy
+
+**Risk: Competitive Response**
+- **Probability:** High
+- **Impact:** Medium
+- **Mitigation:**
+  - First-mover advantage
+  - Continuous innovation
+  - Strong brand building
+  - Superior user experience
+  - Deeper integrations
+  - Premium support
+
+**Risk: Pricing Pressure**
+- **Probability:** Medium
+- **Impact:** Medium
+- **Mitigation:**
+  - Value-based pricing
+  - Clear ROI demonstration
+  - Multiple pricing tiers
+  - Enterprise offerings
+  - Bundled services
+  - Volume discounts
+
+**Risk: Support Burden Exceeds Capacity**
+- **Probability:** High
+- **Impact:** Medium
+- **Mitigation:**
+  - Comprehensive documentation
+  - Video tutorials
+  - Knowledge base
+  - Community forums
+  - Automated onboarding
+  - Tiered support model
+  - Support ticket system
+
+### 17.3 Operational Risks
+
+**Risk: Key Personnel Departure**
+- **Probability:** Low
+- **Impact:** High
+- **Mitigation:**
+  - Document all processes
+  - Code documentation
+  - Cross-training team members
+  - Backup developers identified
+  - Knowledge transfer protocols
+
+**Risk: Legal/Compliance Issues**
+- **Probability:** Low
+- **Impact:** Critical
+- **Mitigation:**
+  - Legal review of terms
+  - GDPR compliance from day one
+  - Privacy policy review
+  - Trademark searches
+  - License compliance
+
+**Risk: Third-Party Service Outage**
+- **Probability:** Medium
+- **Impact:** Medium
+- **Mitigation:**
+  - Graceful degradation
+  - Status monitoring
+  - Alternative providers identified
+  - SLA agreements
+  - Communication plan
+
+---
+
+## 18. Support & Maintenance
+
+### 18.1 Support Structure
+
+**Free Tier Support:**
+- Community forums
+- Knowledge base
+- Video tutorials
+- Email support (72-hour response)
+- Basic troubleshooting
+
+**Professional Tier Support:**
+- Priority email support (24-hour response)
+- Advanced troubleshooting
+- Configuration assistance
+- Feature guidance
+- Bug priority status
+
+**Business Tier Support:**
+- Priority email & phone support (4-hour response)
+- Setup assistance
+- Custom configuration
+- Integration help
+- Dedicated success manager
+
+**Enterprise Tier Support:**
+- 24/7 priority support (1-hour response)
+- Dedicated account manager
+- Implementation services
+- Custom development
+- SLA guarantees
+- Training programs
+
+### 18.2 Knowledge Base
+
+**Documentation Categories:**
+- Getting Started
+- Installation Guide
+- Configuration Guide
+- PWA Setup
+- Notification Sending
+- Workflow Creation
+- Segmentation
+- Analytics
+- Integrations (per plugin)
+- Troubleshooting
+- Developer Documentation
+- API Reference
+- Hooks & Filters
+- FAQ
+
+**Video Tutorials:**
+- Quick Start (5 minutes)
+- PWA Configuration (10 minutes)
+- Sending First Notification (5 minutes)
+- Creating Workflows (15 minutes)
+- WooCommerce Setup (10 minutes)
+- Advanced Segmentation (15 minutes)
+- Analytics Deep Dive (10 minutes)
+
+### 18.3 Maintenance Schedule
+
+**Daily:**
+- Monitor error logs
+- Review support tickets
+- Check system status
+- Monitor OneSignal API status
+
+**Weekly:**
+- Review analytics
+- Check for WordPress/PHP updates
+- Security scanning
+- Performance monitoring
+- User feedback review
+
+**Monthly:**
+- Plugin updates and patches
+- New feature releases
+- Documentation updates
+- Community engagement
+- Competitor analysis
+
+**Quarterly:**
+- Security audit
+- Performance optimization
+- Major feature releases
+- Code refactoring
+- Dependency updates
+
+**Annually:**
+- Comprehensive security audit
+- Penetration testing
+- Architecture review
+- Roadmap planning
+- Contract renewals
+
+### 18.4 Update Strategy
+
+**Versioning:**
+- Semantic versioning (MAJOR.MINOR.PATCH)
+- Major versions: Breaking changes
+- Minor versions: New features (backward compatible)
+- Patch versions: Bug fixes
+
+**Release Cadence:**
+- Patch releases: As needed (critical bugs)
+- Minor releases: Monthly
+- Major releases: Quarterly
+
+**Update Process:**
+- Beta testing period (2 weeks)
+- Staged rollout (10% → 50% → 100%)
+- Rollback plan ready
+- Communication to users
+- Changelog documentation
+
+---
+
+## 19. Monetization Strategy
+
+### 19.1 Pricing Tiers (Detailed)
+
+**Free Tier - $0/month**
+
+**Target Audience:** Hobbyists, small blogs, testing users
+
+**Features:**
+- Basic PWA functionality
+- Manifest generation
+- Service worker (basic caching)
+- OneSignal integration
+- Up to 10,000 subscribers
+- 10,000 notifications per month
+- 3 segments
+- Basic templates
+- Standard support (72-hour response)
+- Community forum access
+- Oxford Pierpont branding visible
+
+**Limitations:**
+- No A/B testing
+- No automation workflows
+- No white-label
+- No API access
+- No advanced analytics
+- Standard caching only
+
+**Conversion Triggers:**
+- Subscriber count approaching limit
+- Notification send limit approaching
+- Feature discovery of locked features
+- Success with basic features
+
+---
+
+**Professional Tier - $49/month ($470/year)**
+
+**Target Audience:** Growing businesses, serious content creators, small e-commerce
+
+**Everything in Free, plus:**
+- Unlimited subscribers
+- Unlimited notifications
+- Unlimited segments
+- A/B testing (2 variants)
+- 5 active workflows
+- All caching strategies
+- Advanced templates
+- E-commerce integrations (WooCommerce, EDD)
+- Form integrations
+- Membership plugin integrations
+- Advanced analytics
+- Scheduled notifications
+- Recurring notifications
+- Priority email support (24-hour response)
+- Remove branding
+- Video tutorials access
+
+**Ideal For:**
+- WooCommerce stores with < 1,000 orders/month
+- Blogs with 10K-100K monthly visitors
+- Small membership sites
+- Content creators monetizing audience
+
+**Value Proposition:**
+- Cart recovery alone typically recovers $500-$2,000/month
+- Notification engagement 5-10x email
+- Setup in 15 minutes vs weeks of development
+- Pay for itself in first month through recovered carts
+
+---
+
+**Business Tier - $149/month ($1,430/year)**
+
+**Target Audience:** Agencies, high-traffic sites, serious e-commerce
+
+**Everything in Professional, plus:**
+- Up to 5 sites
+- White-label capability (remove all branding, custom branding)
+- Unlimited A/B testing variants
+- Unlimited workflows
+- Advanced geolocation features
+- In-app messaging
+- API access (REST & GraphQL)
+- Webhook integrations
+- Custom caching rules
+- Advanced automation (ML-powered)
+- Predictive segments
+- Send time optimization
+- Custom integrations support
+- Priority email & phone support (4-hour response)
+- Dedicated success manager (monthly check-ins)
+- Training sessions
+- Configuration assistance
+
+**Ideal For:**
+- Digital agencies managing 3-5 client sites
+- E-commerce stores with 1,000-10,000 orders/month
+- High-traffic content sites (100K-1M visitors/month)
+- Multi-site businesses
+- SaaS companies
+
+**Value Proposition:**
+- $149/month = ~$30/site if managing 5 clients
+- Charge clients $99-$199/month for PWA management = $500-$1,000 profit
+- White-label builds agency brand
+- API access for custom integrations
+- Success manager helps maximize ROI
+
+---
+
+**Enterprise Tier - Custom Pricing (Starting $500/month)**
+
+**Target Audience:** Large corporations, major publishers, enterprise e-commerce
+
+**Everything in Business, plus:**
+- Unlimited sites
+- Custom development available
+- SLA guarantees (99.99% uptime)
+- 24/7 priority support (1-hour response)
+- Dedicated infrastructure option
+- Advanced security features
+- Custom integrations
+- On-premise deployment option
+- Training and certification programs
+- Strategic account management
+- Quarterly business reviews
+- Early access to new features
+- Influence on product roadmap
+- Volume discounts
+- Annual billing only
+
+**Custom Pricing Based On:**
+- Number of sites/domains
+- Subscriber volume
+- Notification volume
+- Support level required
+- Custom development scope
+- Training requirements
+
+**Ideal For:**
+- Enterprise WordPress installations
+- Large e-commerce (10,000+ orders/month)
+- Major publishers (1M+ monthly visitors)
+- WordPress agencies with 20+ clients
+- SaaS companies at scale
+- Government/education institutions
+
+**Value Proposition:**
+- White-glove service
+- Custom features developed
+- Guaranteed performance
+- Compliance assistance
+- Strategic partnership
+
+### 19.2 Add-On Services
+
+**Implementation Service - $499-$2,499**
+- Full plugin setup
+- PWA configuration
+- Workflow creation
+- Integration setup
+- Staff training (1-3 hours)
+- Custom design
+
+**Migration Service - $299-$999**
+- Migrate from other PWA/notification plugins
+- Data import
+- Configuration transfer
+- Testing and validation
+
+**Training & Certification - $199-$499 per person**
+- Comprehensive training program
+- Certification exam
+- Certificate of completion
+- Listed in certified directory
+- Ongoing education credits
+
+**Custom Development - $150/hour**
+- Custom integrations
+- Unique workflows
+- Special features
+- Theme compatibility
+- Advanced customization
+
+### 19.3 Partner Program
+
+**Affiliate Program:**
+- 20% recurring commission
+- 90-day cookie
+- Promotional materials provided
+- Monthly payouts
+- Affiliate dashboard
+
+**Agency Partner Program:**
+- 25% recurring commission for 10+ clients
+- Co-marketing opportunities
+- White-label materials
+- Priority support for all clients
+- Quarterly strategy calls
+- Featured in partner directory
+
+**Reseller Program:**
+- 40% discount on Business tier for resale
+- White-label at cost
+- Sales training
+- Marketing materials
+- Lead generation support
+
+### 19.4 Additional Revenue Streams
+
+**Marketplace:**
+- Premium templates ($29-$99)
+- Custom integrations by third parties (20% platform fee)
+- Workflow templates ($19-$49)
+- Design packs ($49-$149)
+
+**Services:**
+- Consulting ($200-$500/hour)
+- Audit services ($1,000-$5,000)
+- Strategy development ($2,000-$10,000)
+- Ongoing management ($500-$2,000/month)
+
+**Education:**
+- Premium courses ($99-$299)
+- Certification programs ($199-$499)
+- Workshops and webinars ($49-$199)
+- Conference speaking (brand building)
+
+### 19.5 Pricing Strategy
+
+**Free Tier Purpose:**
+- Market penetration
+- User acquisition
+- Viral growth
+- Freemium funnel
+- Feedback collection
+- Proof of concept
+
+**Conversion Strategy:**
+- In-app upgrade prompts at feature limits
+- Email nurture sequences
+- Success stories
+- ROI calculators
+- Limited-time offers
+- Usage-based recommendations
+
+**Retention Strategy:**
+- Onboarding excellence
+- Regular value reminders
+- Feature discovery
+- Customer success engagement
+- Proactive support
+- Community building
+
+**Expansion Strategy:**
+- Usage-based upgrades
+- Multi-site needs
+- Advanced features
+- White-label requirements
+- API access needs
+- Support level escalation
+
+---
+
+## 20. Legal & Compliance
+
+### 20.1 Licensing
+
+**Plugin License:** Proprietary License
+
+**Terms:**
+- Copyright © 2024 The Oxford Pierpont Corporation
+- All rights reserved
+- License granted per site/domain
+- No redistribution allowed
+- No reverse engineering
+- No derivative works
+- White-label allowed only with Business+ tier
+- License revocable for violations
+
+**Open Source Components:**
+- WordPress APIs used per GPL compatibility
+- Third-party libraries used per their licenses
+- Attribution provided where required
+
+### 20.2 Terms of Service
+
+**Key Terms:**
+- Acceptable use policy
+- Account creation requirements
+- Payment terms and refunds
+- Cancellation policy
+- Intellectual property rights
+- Limitation of liability
+- Warranty disclaimer
+- Indemnification
+- Dispute resolution
+- Governing law
+
+**Prohibited Uses:**
+- Spam or unsolicited messages
+- Illegal content or activities
+- Malware or malicious code
+- Harassment or abuse
+- Circumventing security
+- Excessive API usage
+- Resale without authorization
+
+### 20.3 Privacy Policy
+
+**Data Collection:**
+- What data is collected
+- How data is used
+- Who data is shared with
+- How long data is retained
+- How data is protected
+
+**User Rights:**
+- Right to access
+- Right to rectification
+- Right to erasure
+- Right to data portability
+- Right to object
+- Right to withdraw consent
+
+**Third-Party Services:**
+- OneSignal data processing
+- Analytics services
+- Hosting providers
+- CDN services
+- Payment processors
+
+### 20.4 Service Level Agreement (Enterprise Only)
+
+**Uptime Guarantee:**
+- 99.99% uptime commitment
+- Scheduled maintenance windows
+- Incident notification within 1 hour
+- Resolution time targets by severity
+
+**Support Response Times:**
+- Critical: 1 hour
+- High: 4 hours
+- Medium: 8 hours
+- Low: 24 hours
+
+**Credits for Downtime:**
+- < 99.99%: 10% monthly fee credit
+- < 99.9%: 25% monthly fee credit
+- < 99%: 50% monthly fee credit
+- < 95%: 100% monthly fee credit
+
+### 20.5 Data Processing Agreement
+
+**GDPR Compliance:**
+- Controller/Processor relationship defined
+- Data processing purposes specified
+- Security measures outlined
+- Sub-processor authorization
+- Data breach notification procedures
+- Data subject rights support
+- Audit rights
+
+**Data Security:**
+- Encryption standards
+- Access controls
+- Monitoring and logging
+- Incident response
+- Business continuity
+
+### 20.6 Intellectual Property
+
+**Trademarks:**
+- "OneSignal PWA for WordPress" trademark
+- Oxford Pierpont Corporation branding
+- Logo and design marks
+
+**Patents:**
+- Consider patent filings for unique innovations
+- Defensive patent strategy
+
+**Copyrights:**
+- Code copyright
+- Documentation copyright
+- Design copyright
+- Content copyright
+
+### 20.7 Compliance Requirements
+
+**GDPR (European Union):**
+- Legal basis for processing
+- Data protection impact assessment
+- Privacy by design
+- DPO designation (if required)
+- Cross-border data transfer mechanisms
+
+**CCPA (California):**
+- Privacy notice requirements
+- Do Not Sell opt-out
+- Consumer rights fulfillment
+- Service provider obligations
+
+**COPPA (Children's Privacy):**
+- No collection from under-13 without consent
+- Parental consent mechanisms
+- Special protections
+
+**CAN-SPAM (Email/Notifications):**
+- Clear identification
+- Opt-out mechanism
+- Honor opt-outs promptly
+- Physical address inclusion
+
+**TCPA (Telephone Consumer Protection):**
+- If SMS features added
+- Prior express consent required
+- Opt-out provisions
+
+### 20.8 Accessibility Compliance
+
+**WCAG 2.1 AA:**
+- Perceivable content
+- Operable interface
+- Understandable information
+- Robust technology
+
+**Section 508 (U.S. Federal):**
+- Government website requirements
+- If marketing to government sector
+
+**ADA (Americans with Disabilities Act):**
+- Website accessibility
+- Plugin admin accessibility
+
+---
+
+## Appendices
+
+### Appendix A: Glossary
+
+**PWA (Progressive Web App):** Web application using modern web capabilities to deliver app-like experience
+
+**Manifest:** JSON file describing PWA properties and appearance
+
+**Service Worker:** JavaScript running in background enabling offline functionality
+
+**OneSignal:** Cloud-based push notification service
+
+**Push Notification:** Message sent to user device even when not on website
+
+**In-App Message:** Message displayed within website/app
+
+**Segmentation:** Dividing users into groups for targeted messaging
+
+**Workflow:** Automated sequence of messages and conditions
+
+**Geofencing:** Location-based triggers for notifications
+
+**A/B Testing:** Comparing two variants to determine which performs better
+
+### Appendix B: References
+
+**Standards:**
+- W3C Web App Manifest Specification
+- W3C Service Worker Specification
+- W3C Push API Specification
+- W3C Notifications API Specification
+- WordPress Coding Standards
+- WordPress Plugin Handbook
+
+**APIs:**
+- OneSignal REST API Documentation
+- OneSignal Web SDK Documentation
+- WordPress REST API Reference
+- WooCommerce REST API Documentation
+
+**Frameworks & Libraries:**
+- WordPress Core APIs
+- React (for admin UI)
+- Chart.js (for analytics)
+- Workbox (service worker library)
+
+### Appendix C: Revision History
+
+| Version | Date | Author | Changes |
+|---------|------|--------|---------|
+| 1.0 | 2024-11-22 | Oxford Pierpont | Initial comprehensive PRD |
+
+---
+
+**Document Approval:**
+
+**Prepared by:** Oxford Pierpont  
+**Organization:** The Oxford Pierpont Corporation  
+**Website:** https://oxfordpierpont.com
+
+**Approved by:** ____________________  
+**Date:** ____________________
+
+---
+
+**End of Document**
+
+Total Pages: 50+  
+Total Words: 25,000+  
+Total Features: 200+  
+Total User Stories: 50+  
+Total Acceptance Criteria: 100+
