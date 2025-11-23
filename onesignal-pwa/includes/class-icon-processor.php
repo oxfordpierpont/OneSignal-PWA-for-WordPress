@@ -107,19 +107,34 @@ class OneSignal_PWA_Icon_Processor {
             return new WP_Error('upload_error', __('File upload failed', 'onesignal-pwa'));
         }
 
-        // Check file type
-        $allowed_types = array('image/png', 'image/jpeg', 'image/jpg');
-        $file_type = wp_check_filetype($file['name']);
+        // Check file size (max 5MB)
+        $max_file_size = 5 * 1024 * 1024; // 5MB in bytes
+        if ($file['size'] > $max_file_size) {
+            return new WP_Error('file_too_large', __('File size must be less than 5MB', 'onesignal-pwa'));
+        }
 
-        if (!in_array($file['type'], $allowed_types)) {
+        // Validate image using getimagesize (more reliable than checking MIME type)
+        $image_info = @getimagesize($file['tmp_name']);
+
+        if ($image_info === false) {
+            return new WP_Error('invalid_image', __('File is not a valid image', 'onesignal-pwa'));
+        }
+
+        // Check MIME type from getimagesize
+        $allowed_mime_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG);
+        if (!in_array($image_info[2], $allowed_mime_types, true)) {
             return new WP_Error('invalid_type', __('Only PNG and JPEG images are allowed', 'onesignal-pwa'));
         }
 
         // Check image dimensions
-        $image_info = getimagesize($file['tmp_name']);
-
         if ($image_info[0] < 512 || $image_info[1] < 512) {
             return new WP_Error('invalid_size', __('Image must be at least 512x512 pixels', 'onesignal-pwa'));
+        }
+
+        // Additional security: Check for PHP code in image
+        $file_contents = file_get_contents($file['tmp_name'], false, null, 0, 1024);
+        if (preg_match('/<\?php|<\?=|<script/i', $file_contents)) {
+            return new WP_Error('invalid_image', __('Image file contains invalid content', 'onesignal-pwa'));
         }
 
         // Generate icons

@@ -176,27 +176,69 @@ class OneSignal_PWA_Subscriber {
         global $wpdb;
         $table = $wpdb->prefix . 'onesignal_pwa_subscribers';
 
+        // Whitelist of allowed fields to prevent SQL injection
+        $allowed_fields = array(
+            'player_id',
+            'external_id',
+            'user_id',
+            'email',
+            'device_type',
+            'device_model',
+            'browser',
+            'browser_version',
+            'os',
+            'os_version',
+            'country',
+            'region',
+            'city',
+            'timezone',
+            'language',
+            'first_session',
+            'last_session',
+            'session_count',
+            'subscription_status',
+            'created_at',
+            'updated_at'
+        );
+
+        // Whitelist of allowed operators
+        $allowed_operators = array('equals', 'not_equals', 'contains', 'greater_than', 'less_than');
+
         $where_clauses = array();
         $where_values = array();
 
         foreach ($rules as $rule) {
+            if (!isset($rule['field']) || !isset($rule['operator']) || !isset($rule['value'])) {
+                continue; // Skip invalid rules
+            }
+
             $field = $rule['field'];
             $operator = $rule['operator'];
             $value = $rule['value'];
 
+            // Validate field name against whitelist
+            if (!in_array($field, $allowed_fields, true)) {
+                continue; // Skip invalid field
+            }
+
+            // Validate operator against whitelist
+            if (!in_array($operator, $allowed_operators, true)) {
+                continue; // Skip invalid operator
+            }
+
             switch ($operator) {
                 case 'equals':
-                    $where_clauses[] = "$field = %s";
+                    $where_clauses[] = "`$field` = %s";
                     $where_values[] = $value;
                     break;
 
                 case 'not_equals':
-                    $where_clauses[] = "$field != %s";
+                    $where_clauses[] = "`$field` != %s";
                     $where_values[] = $value;
                     break;
 
                 case 'contains':
-                    $where_clauses[] = "$field LIKE %s";
+                    $where_clauses[] = "`$field` LIKE %s";
                     $where_values[] = '%' . $wpdb->esc_like($value) . '%';
                     break;
 
@@ -204,10 +246,10 @@ class OneSignal_PWA_Subscriber {
                     if (strpos($value, 'days ago') !== false) {
                         $days = intval($value);
                         $date = date('Y-m-d H:i:s', strtotime("-{$days} days"));
-                        $where_clauses[] = "$field > %s";
+                        $where_clauses[] = "`$field` > %s";
                         $where_values[] = $date;
                     } else {
-                        $where_clauses[] = "$field > %s";
+                        $where_clauses[] = "`$field` > %s";
                         $where_values[] = $value;
                     }
                     break;
@@ -216,20 +258,47 @@ class OneSignal_PWA_Subscriber {
                     if (strpos($value, 'days ago') !== false) {
                         $days = intval($value);
                         $date = date('Y-m-d H:i:s', strtotime("-{$days} days"));
-                        $where_clauses[] = "$field < %s";
+                        $where_clauses[] = "`$field` < %s";
                         $where_values[] = $date;
                     } else {
-                        $where_clauses[] = "$field < %s";
+                        $where_clauses[] = "`$field` < %s";
                         $where_values[] = $value;
                     }
                     break;
             }
         }
 
+        // Return empty array if no valid rules
+        if (empty($where_clauses)) {
+            return array();
+        }
+
         $where = implode(' AND ', $where_clauses);
         $query = "SELECT * FROM {$table} WHERE {$where}";
 
+        if (empty($where_values)) {
+            return $wpdb->get_results($query);
+        }
+
         return $wpdb->get_results($wpdb->prepare($query, $where_values));
+    }
+
+    /**
+     * Get all subscribers
+     *
+     * @param int $limit
+     * @param int $offset
+     * @return array
+     */
+    public static function get_all($limit = 100, $offset = 0) {
+        global $wpdb;
+        $table = $wpdb->prefix . 'onesignal_pwa_subscribers';
+
+        return $wpdb->get_results($wpdb->prepare(
+            "SELECT * FROM {$table} WHERE subscription_status = 'subscribed' ORDER BY created_at DESC LIMIT %d OFFSET %d",
+            $limit,
+            $offset
+        ));
     }
 
     /**

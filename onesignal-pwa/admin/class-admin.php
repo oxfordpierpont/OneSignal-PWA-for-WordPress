@@ -319,10 +319,32 @@ class OneSignal_PWA_Admin {
      * Handle create segment
      */
     private function handle_create_segment() {
+        // Validate and sanitize input
+        if (empty($_POST['segment_name']) || empty($_POST['segment_rules'])) {
+            add_settings_error('onesignal_pwa', 'segment_error', __('Name and rules are required.', 'onesignal-pwa'), 'error');
+            return;
+        }
+
+        $rules = json_decode(stripslashes($_POST['segment_rules']), true);
+
+        // Validate rules structure
+        if (!is_array($rules)) {
+            add_settings_error('onesignal_pwa', 'segment_error', __('Invalid rules format.', 'onesignal-pwa'), 'error');
+            return;
+        }
+
+        // Validate each rule
+        foreach ($rules as $rule) {
+            if (!isset($rule['field']) || !isset($rule['operator']) || !isset($rule['value'])) {
+                add_settings_error('onesignal_pwa', 'segment_error', __('Invalid rule structure.', 'onesignal-pwa'), 'error');
+                return;
+            }
+        }
+
         $data = array(
             'name' => sanitize_text_field($_POST['segment_name']),
-            'description' => sanitize_textarea_field($_POST['segment_description']),
-            'rules' => json_decode(stripslashes($_POST['segment_rules']), true)
+            'description' => isset($_POST['segment_description']) ? sanitize_textarea_field($_POST['segment_description']) : '',
+            'rules' => $rules
         );
 
         OneSignal_PWA_Segment::create($data);
@@ -334,13 +356,28 @@ class OneSignal_PWA_Admin {
      * Handle save PWA settings
      */
     private function handle_save_pwa_settings() {
+        // Whitelist for display modes
+        $valid_display_modes = array('standalone', 'fullscreen', 'minimal-ui', 'browser');
+        $display_mode = isset($_POST['display_mode']) ? sanitize_text_field($_POST['display_mode']) : 'standalone';
+        if (!in_array($display_mode, $valid_display_modes, true)) {
+            $display_mode = 'standalone';
+        }
+
+        // Whitelist for orientations
+        $valid_orientations = array('any', 'natural', 'landscape', 'portrait', 'portrait-primary', 'portrait-secondary', 'landscape-primary', 'landscape-secondary');
+        $orientation = isset($_POST['orientation']) ? sanitize_text_field($_POST['orientation']) : 'any';
+        if (!in_array($orientation, $valid_orientations, true)) {
+            $orientation = 'any';
+        }
+
+        // Validate and sanitize all inputs
         OneSignal_PWA_Settings::set('app_name', sanitize_text_field($_POST['app_name']));
-        OneSignal_PWA_Settings::set('app_short_name', sanitize_text_field($_POST['app_short_name']));
-        OneSignal_PWA_Settings::set('app_description', sanitize_textarea_field($_POST['app_description']));
+        OneSignal_PWA_Settings::set('app_short_name', substr(sanitize_text_field($_POST['app_short_name']), 0, 12));
+        OneSignal_PWA_Settings::set('app_description', substr(sanitize_textarea_field($_POST['app_description']), 0, 255));
         OneSignal_PWA_Settings::set('theme_color', sanitize_hex_color($_POST['theme_color']));
         OneSignal_PWA_Settings::set('background_color', sanitize_hex_color($_POST['background_color']));
-        OneSignal_PWA_Settings::set('display_mode', sanitize_text_field($_POST['display_mode']));
-        OneSignal_PWA_Settings::set('orientation', sanitize_text_field($_POST['orientation']));
+        OneSignal_PWA_Settings::set('display_mode', $display_mode);
+        OneSignal_PWA_Settings::set('orientation', $orientation);
 
         add_settings_error('onesignal_pwa', 'settings_saved', __('PWA settings saved successfully!', 'onesignal-pwa'), 'success');
     }
