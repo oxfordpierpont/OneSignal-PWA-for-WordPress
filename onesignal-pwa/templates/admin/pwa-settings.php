@@ -84,6 +84,41 @@ if (!defined('ABSPATH')) {
             </div>
         </div>
 
+        <!-- iOS Add to Home Screen -->
+        <div class="onesignal-card onesignal-mb-6">
+            <div class="onesignal-card-header">
+                <h3 class="onesignal-card-title"><?php _e('iPhone Add to Home Screen', 'onesignal-pwa'); ?></h3>
+                <p class="onesignal-p onesignal-muted onesignal-mb-0"><?php _e('Show a helpful hint for iPhone visitors since Safari does not trigger the native install prompt.', 'onesignal-pwa'); ?></p>
+            </div>
+            <div class="onesignal-card-content">
+                <div class="onesignal-form-row">
+                    <label class="onesignal-flex onesignal-items-center onesignal-gap-2" style="cursor: pointer;">
+                        <input type="checkbox" name="enable_ios_a2hs" value="1" class="onesignal-checkbox" <?php checked(OneSignal_PWA_Settings::get('enable_ios_a2hs', true), '1'); ?>>
+                        <span><?php _e('Enable iPhone Add to Home Screen hint', 'onesignal-pwa'); ?></span>
+                    </label>
+                </div>
+
+                <div class="onesignal-grid onesignal-grid-cols-2 onesignal-gap-6">
+                    <div class="onesignal-form-row">
+                        <label class="onesignal-label" for="ios_a2hs_title"><?php _e('Hint Title', 'onesignal-pwa'); ?></label>
+                        <input type="text" id="ios_a2hs_title" name="ios_a2hs_title" class="onesignal-input" value="<?php echo esc_attr(OneSignal_PWA_Settings::get('ios_a2hs_title', __('Add to Home Screen', 'onesignal-pwa'))); ?>">
+                    </div>
+
+                    <div class="onesignal-form-row">
+                        <label class="onesignal-label" for="ios_a2hs_delay"><?php _e('Delay (seconds)', 'onesignal-pwa'); ?></label>
+                        <input type="number" id="ios_a2hs_delay" name="ios_a2hs_delay" class="onesignal-input" min="0" value="<?php echo esc_attr(OneSignal_PWA_Settings::get('ios_a2hs_delay', 15)); ?>">
+                        <p class="onesignal-form-description"><?php _e('How long to wait before showing the hint on iPhones.', 'onesignal-pwa'); ?></p>
+                    </div>
+                </div>
+
+                <div class="onesignal-form-row">
+                    <label class="onesignal-label" for="ios_a2hs_message"><?php _e('Hint Message', 'onesignal-pwa'); ?></label>
+                    <textarea id="ios_a2hs_message" name="ios_a2hs_message" class="onesignal-textarea" rows="3"><?php echo esc_textarea(OneSignal_PWA_Settings::get('ios_a2hs_message', __('Tap the share icon and select “Add to Home Screen” to install this app on your iPhone.', 'onesignal-pwa'))); ?></textarea>
+                    <p class="onesignal-form-description"><?php _e('Explain how to tap the Share icon and choose “Add to Home Screen”.', 'onesignal-pwa'); ?></p>
+                </div>
+            </div>
+        </div>
+
         <!-- Offline Settings -->
         <div class="onesignal-card onesignal-mb-6">
             <div class="onesignal-card-header">

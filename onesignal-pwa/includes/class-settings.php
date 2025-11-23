@@ -41,6 +41,10 @@ class OneSignal_PWA_Settings {
         register_setting('onesignal_pwa_settings', self::OPTION_PREFIX . 'orientation');
         register_setting('onesignal_pwa_settings', self::OPTION_PREFIX . 'start_url');
         register_setting('onesignal_pwa_settings', self::OPTION_PREFIX . 'scope');
+        register_setting('onesignal_pwa_settings', self::OPTION_PREFIX . 'enable_ios_a2hs');
+        register_setting('onesignal_pwa_settings', self::OPTION_PREFIX . 'ios_a2hs_title');
+        register_setting('onesignal_pwa_settings', self::OPTION_PREFIX . 'ios_a2hs_message');
+        register_setting('onesignal_pwa_settings', self::OPTION_PREFIX . 'ios_a2hs_delay');
 
         // OneSignal API settings
         register_setting('onesignal_pwa_api', self::OPTION_PREFIX . 'app_id');
@@ -114,6 +118,10 @@ class OneSignal_PWA_Settings {
             'orientation' => self::get('orientation', 'any'),
             'start_url' => self::get('start_url', '/'),
             'scope' => self::get('scope', '/'),
+            'enable_ios_a2hs' => self::get('enable_ios_a2hs', true),
+            'ios_a2hs_title' => self::get('ios_a2hs_title', __('Add to Home Screen', 'onesignal-pwa')),
+            'ios_a2hs_message' => self::get('ios_a2hs_message', __('Tap the share icon and select “Add to Home Screen” to install this app on your iPhone.', 'onesignal-pwa')),
+            'ios_a2hs_delay' => intval(self::get('ios_a2hs_delay', 15)),
         );
     }
 
