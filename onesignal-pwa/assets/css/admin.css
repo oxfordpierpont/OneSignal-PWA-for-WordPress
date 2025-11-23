@@ -1,0 +1,960 @@
+/**
+ * OneSignal PWA Admin Styles - Shadcn UI Inspired
+ *
+ * @package OneSignal_PWA
+ */
+
+/* ===================================
+   CSS VARIABLES (DESIGN TOKENS)
+   =================================== */
+:root {
+    /* Colors - HSL format for easy manipulation */
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 47.4% 11.2%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142.1 76.2% 36.3%;
+    --success-foreground: 355.7 100% 97.3%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 48 96% 89%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+
+    /* Chart Colors */
+    --chart-1: 221.2 83.2% 53.3%;
+    --chart-2: 142.1 76.2% 36.3%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 280.3 89.1% 45.1%;
+    --chart-5: 340.8 82.6% 47.5%;
+}
+
+/* Dark Mode Variables */
+.dark-mode {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 222.2 47.4% 11.2%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --success: 142.1 70.6% 45.3%;
+    --success-foreground: 144.9 80.4% 10%;
+
+    --ring: 216 34% 17%;
+}
+
+/* ===================================
+   BASE STYLES
+   =================================== */
+.onesignal-pwa-wrap {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: hsl(var(--foreground));
+    line-height: 1.5;
+}
+
+/* ===================================
+   TYPOGRAPHY
+   =================================== */
+.onesignal-h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-h2 {
+    font-size: 1.875rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-p {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: hsl(var(--muted-foreground));
+}
+
+.onesignal-small {
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: hsl(var(--muted-foreground));
+}
+
+.onesignal-muted {
+    color: hsl(var(--muted-foreground));
+}
+
+/* ===================================
+   BUTTONS (SHADCN STYLE)
+   =================================== */
+.onesignal-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+    height: 2.5rem;
+    padding: 0.5rem 1rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+}
+
+.onesignal-btn:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+}
+
+.onesignal-btn:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+/* Button Variants */
+.onesignal-btn-primary {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+}
+
+.onesignal-btn-primary:hover {
+    background-color: hsl(var(--primary) / 0.9);
+}
+
+.onesignal-btn-secondary {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+}
+
+.onesignal-btn-secondary:hover {
+    background-color: hsl(var(--secondary) / 0.8);
+}
+
+.onesignal-btn-destructive {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+}
+
+.onesignal-btn-destructive:hover {
+    background-color: hsl(var(--destructive) / 0.9);
+}
+
+.onesignal-btn-outline {
+    background-color: transparent;
+    border: 1px solid hsl(var(--input));
+    color: hsl(var(--foreground));
+}
+
+.onesignal-btn-outline:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+}
+
+.onesignal-btn-ghost {
+    background-color: transparent;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-btn-ghost:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+}
+
+.onesignal-btn-link {
+    background-color: transparent;
+    color: hsl(var(--primary));
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.onesignal-btn-link:hover {
+    text-decoration: none;
+}
+
+/* Button Sizes */
+.onesignal-btn-sm {
+    height: 2rem;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8125rem;
+}
+
+.onesignal-btn-lg {
+    height: 2.75rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+}
+
+.onesignal-btn-icon {
+    height: 2.5rem;
+    width: 2.5rem;
+    padding: 0;
+}
+
+/* ===================================
+   CARDS (SHADCN STYLE)
+   =================================== */
+.onesignal-card {
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border: 1px solid hsl(var(--border));
+    border-radius: calc(var(--radius) + 2px);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.onesignal-card-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.onesignal-card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    margin: 0;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-card-description {
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+    margin: 0.25rem 0 0;
+}
+
+.onesignal-card-content {
+    padding: 1.5rem;
+}
+
+.onesignal-card-footer {
+    padding: 1.5rem;
+    border-top: 1px solid hsl(var(--border));
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Stat Cards */
+.onesignal-stat-card {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+.onesignal-stat-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: hsl(var(--muted-foreground));
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.onesignal-stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0.5rem 0;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-stat-change {
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.onesignal-stat-change.positive {
+    color: hsl(var(--success));
+}
+
+.onesignal-stat-change.negative {
+    color: hsl(var(--destructive));
+}
+
+.onesignal-stat-change.neutral {
+    color: hsl(var(--muted-foreground));
+}
+
+/* ===================================
+   FORM CONTROLS (SHADCN STYLE)
+   =================================== */
+.onesignal-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.onesignal-input,
+.onesignal-textarea,
+.onesignal-select {
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--input));
+    background-color: transparent;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: hsl(var(--foreground));
+    transition: all 0.2s;
+}
+
+.onesignal-input:focus,
+.onesignal-textarea:focus,
+.onesignal-select:focus {
+    outline: none;
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 3px hsl(var(--ring) / 0.1);
+}
+
+.onesignal-input:disabled,
+.onesignal-textarea:disabled,
+.onesignal-select:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.onesignal-input::placeholder,
+.onesignal-textarea::placeholder {
+    color: hsl(var(--muted-foreground));
+}
+
+.onesignal-textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.onesignal-select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.onesignal-form-row {
+    margin-bottom: 1.5rem;
+}
+
+.onesignal-form-description {
+    font-size: 0.8125rem;
+    color: hsl(var(--muted-foreground));
+    margin-top: 0.25rem;
+}
+
+.onesignal-form-error {
+    font-size: 0.8125rem;
+    color: hsl(var(--destructive));
+    margin-top: 0.25rem;
+}
+
+/* Checkbox & Radio */
+.onesignal-checkbox,
+.onesignal-radio {
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid hsl(var(--primary));
+    border-radius: 0.25rem;
+}
+
+.onesignal-radio {
+    border-radius: 50%;
+}
+
+/* ===================================
+   BADGES (SHADCN STYLE)
+   =================================== */
+.onesignal-badge {
+    display: inline-flex;
+    align-items: center;
+    border-radius: calc(var(--radius) - 2px);
+    padding: 0.25rem 0.625rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 1;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.onesignal-badge-default {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+}
+
+.onesignal-badge-secondary {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+}
+
+.onesignal-badge-success {
+    background-color: hsl(var(--success));
+    color: hsl(var(--success-foreground));
+}
+
+.onesignal-badge-destructive {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+}
+
+.onesignal-badge-warning {
+    background-color: hsl(var(--warning));
+    color: hsl(var(--warning-foreground));
+}
+
+.onesignal-badge-outline {
+    background-color: transparent;
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+}
+
+/* Status Badges */
+.onesignal-status-sent {
+    background-color: hsl(var(--success));
+    color: hsl(var(--success-foreground));
+}
+
+.onesignal-status-draft {
+    background-color: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
+}
+
+.onesignal-status-scheduled {
+    background-color: hsl(var(--warning));
+    color: hsl(var(--warning-foreground));
+}
+
+.onesignal-status-failed {
+    background-color: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+}
+
+/* ===================================
+   TABLES (SHADCN STYLE)
+   =================================== */
+.onesignal-table-wrapper {
+    width: 100%;
+    overflow: auto;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+}
+
+.onesignal-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: hsl(var(--card));
+}
+
+.onesignal-table thead {
+    border-bottom: 1px solid hsl(var(--border));
+}
+
+.onesignal-table th {
+    height: 3rem;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+    background-color: hsl(var(--muted));
+}
+
+.onesignal-table td {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-table tbody tr {
+    border-bottom: 1px solid hsl(var(--border));
+    transition: background-color 0.2s;
+}
+
+.onesignal-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.onesignal-table tbody tr:hover {
+    background-color: hsl(var(--muted) / 0.5);
+}
+
+.onesignal-table-empty {
+    padding: 3rem 1rem;
+    text-align: center;
+    color: hsl(var(--muted-foreground));
+}
+
+/* ===================================
+   TABS (SHADCN STYLE)
+   =================================== */
+.onesignal-tabs {
+    width: 100%;
+}
+
+.onesignal-tabs-list {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    background-color: hsl(var(--muted));
+    padding: 0.25rem;
+    gap: 0.25rem;
+}
+
+.onesignal-tabs-trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: calc(var(--radius) - 2px);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    cursor: pointer;
+    background-color: transparent;
+    color: hsl(var(--muted-foreground));
+    border: none;
+}
+
+.onesignal-tabs-trigger:hover {
+    background-color: hsl(var(--muted) / 0.8);
+    color: hsl(var(--foreground));
+}
+
+.onesignal-tabs-trigger.active {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.onesignal-tabs-content {
+    margin-top: 1rem;
+}
+
+/* ===================================
+   ALERT/TOAST (SHADCN STYLE)
+   =================================== */
+.onesignal-alert {
+    position: relative;
+    width: 100%;
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.onesignal-alert-title {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.onesignal-alert-description {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.onesignal-alert-default {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+}
+
+.onesignal-alert-destructive {
+    border-color: hsl(var(--destructive) / 0.5);
+    color: hsl(var(--destructive));
+    background-color: hsl(var(--destructive) / 0.1);
+}
+
+.onesignal-alert-success {
+    border-color: hsl(var(--success) / 0.5);
+    color: hsl(var(--success));
+    background-color: hsl(var(--success) / 0.1);
+}
+
+.onesignal-alert-warning {
+    border-color: hsl(var(--warning) / 0.5);
+    color: hsl(var(--warning));
+    background-color: hsl(var(--warning) / 0.1);
+}
+
+/* ===================================
+   PROGRESS BAR (SHADCN STYLE)
+   =================================== */
+.onesignal-progress {
+    position: relative;
+    height: 1rem;
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background-color: hsl(var(--secondary));
+}
+
+.onesignal-progress-bar {
+    height: 100%;
+    background-color: hsl(var(--primary));
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: hsl(var(--primary-foreground));
+}
+
+/* ===================================
+   GRID SYSTEM
+   =================================== */
+.onesignal-grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.onesignal-grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.onesignal-grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.onesignal-grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.onesignal-grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+/* ===================================
+   SPACING UTILITIES
+   =================================== */
+.onesignal-mt-1 { margin-top: 0.25rem; }
+.onesignal-mt-2 { margin-top: 0.5rem; }
+.onesignal-mt-3 { margin-top: 0.75rem; }
+.onesignal-mt-4 { margin-top: 1rem; }
+.onesignal-mt-6 { margin-top: 1.5rem; }
+.onesignal-mt-8 { margin-top: 2rem; }
+
+.onesignal-mb-1 { margin-bottom: 0.25rem; }
+.onesignal-mb-2 { margin-bottom: 0.5rem; }
+.onesignal-mb-3 { margin-bottom: 0.75rem; }
+.onesignal-mb-4 { margin-bottom: 1rem; }
+.onesignal-mb-6 { margin-bottom: 1.5rem; }
+.onesignal-mb-8 { margin-bottom: 2rem; }
+
+.onesignal-p-1 { padding: 0.25rem; }
+.onesignal-p-2 { padding: 0.5rem; }
+.onesignal-p-3 { padding: 0.75rem; }
+.onesignal-p-4 { padding: 1rem; }
+.onesignal-p-6 { padding: 1.5rem; }
+.onesignal-p-8 { padding: 2rem; }
+
+.onesignal-gap-1 { gap: 0.25rem; }
+.onesignal-gap-2 { gap: 0.5rem; }
+.onesignal-gap-3 { gap: 0.75rem; }
+.onesignal-gap-4 { gap: 1rem; }
+.onesignal-gap-6 { gap: 1.5rem; }
+
+/* ===================================
+   FLEX UTILITIES
+   =================================== */
+.onesignal-flex { display: flex; }
+.onesignal-flex-col { flex-direction: column; }
+.onesignal-items-center { align-items: center; }
+.onesignal-justify-between { justify-content: space-between; }
+.onesignal-justify-center { justify-content: center; }
+.onesignal-flex-wrap { flex-wrap: wrap; }
+
+/* ===================================
+   TEXT UTILITIES
+   =================================== */
+.onesignal-text-center { text-align: center; }
+.onesignal-text-right { text-align: right; }
+.onesignal-font-bold { font-weight: 700; }
+.onesignal-font-semibold { font-weight: 600; }
+.onesignal-font-medium { font-weight: 500; }
+.onesignal-uppercase { text-transform: uppercase; }
+
+/* ===================================
+   NOTIFICATION PREVIEW
+   =================================== */
+.onesignal-notification-preview {
+    background-color: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 400px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.onesignal-notification-preview-icon {
+    flex-shrink: 0;
+}
+
+.onesignal-notification-preview-icon img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.onesignal-notification-preview-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.onesignal-notification-preview-title {
+    font-weight: 600;
+    font-size: 0.9375rem;
+    margin-bottom: 0.25rem;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-notification-preview-message {
+    font-size: 0.875rem;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.5;
+}
+
+.onesignal-notification-preview-url {
+    font-size: 0.75rem;
+    color: hsl(var(--muted-foreground));
+    margin-top: 0.25rem;
+    text-decoration: underline;
+}
+
+/* ===================================
+   CHART CONTAINER
+   =================================== */
+.onesignal-chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.onesignal-chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid hsl(var(--border));
+}
+
+.onesignal-chart-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+}
+
+.onesignal-chart-legend-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+/* ===================================
+   SEGMENT BUILDER
+   =================================== */
+.onesignal-segment-rule {
+    background-color: hsl(var(--muted));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.onesignal-segment-rule-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.onesignal-segment-rule-field {
+    flex: 1;
+}
+
+.onesignal-segment-rule-operator {
+    flex: 1;
+}
+
+.onesignal-segment-rule-value {
+    flex: 1.5;
+}
+
+.onesignal-segment-rule-remove {
+    flex-shrink: 0;
+}
+
+/* ===================================
+   WORKFLOW BUILDER
+   =================================== */
+.onesignal-workflow-canvas {
+    min-height: 400px;
+    background-color: hsl(var(--muted));
+    border: 1px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 2rem;
+    position: relative;
+}
+
+.onesignal-workflow-node {
+    background-color: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+    border-radius: var(--radius);
+    padding: 1rem;
+    min-width: 200px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.onesignal-workflow-node-header {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: hsl(var(--foreground));
+}
+
+.onesignal-workflow-node-content {
+    font-size: 0.8125rem;
+    color: hsl(var(--muted-foreground));
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+@media (max-width: 1024px) {
+    .onesignal-grid-cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .onesignal-grid-cols-2,
+    .onesignal-grid-cols-3,
+    .onesignal-grid-cols-4 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    .onesignal-segment-rule-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .onesignal-segment-rule-field,
+    .onesignal-segment-rule-operator,
+    .onesignal-segment-rule-value {
+        flex: 1;
+    }
+}
+
+/* ===================================
+   LOADING SPINNER
+   =================================== */
+@keyframes onesignal-spin {
+    to { transform: rotate(360deg); }
+}
+
+.onesignal-spinner {
+    border: 2px solid hsl(var(--muted));
+    border-top-color: hsl(var(--primary));
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    animation: onesignal-spin 0.6s linear infinite;
+}
+
+/* ===================================
+   SKELETON LOADER
+   =================================== */
+@keyframes onesignal-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.onesignal-skeleton {
+    background-color: hsl(var(--muted));
+    border-radius: var(--radius);
+    animation: onesignal-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.onesignal-skeleton-text {
+    height: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.onesignal-skeleton-heading {
+    height: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ===================================
+   DARK MODE TOGGLE
+   =================================== */
+.onesignal-theme-toggle {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+}
