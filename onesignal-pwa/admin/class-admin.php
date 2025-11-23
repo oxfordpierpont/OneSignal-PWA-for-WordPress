@@ -595,6 +595,10 @@ class OneSignal_PWA_Admin {
         OneSignal_PWA_Settings::set('background_color', sanitize_hex_color($_POST['background_color']));
         OneSignal_PWA_Settings::set('display_mode', $display_mode);
         OneSignal_PWA_Settings::set('orientation', $orientation);
+        OneSignal_PWA_Settings::set('enable_ios_a2hs', isset($_POST['enable_ios_a2hs']) ? '1' : '');
+        OneSignal_PWA_Settings::set('ios_a2hs_title', sanitize_text_field($_POST['ios_a2hs_title'] ?? ''));
+        OneSignal_PWA_Settings::set('ios_a2hs_message', sanitize_textarea_field($_POST['ios_a2hs_message'] ?? ''));
+        OneSignal_PWA_Settings::set('ios_a2hs_delay', max(0, intval($_POST['ios_a2hs_delay'] ?? 0)));
 
         add_settings_error('onesignal_pwa', 'settings_saved', __('PWA settings saved successfully!', 'onesignal-pwa'), 'success');
     }

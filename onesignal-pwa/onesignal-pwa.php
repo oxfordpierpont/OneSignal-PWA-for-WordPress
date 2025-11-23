@@ -238,6 +238,10 @@ final class OneSignal_PWA {
             'enable_install_prompt' => true,
             'install_prompt_delay' => 30,
             'install_prompt_position' => 'bottom',
+            'enable_ios_a2hs' => true,
+            'ios_a2hs_title' => __('Add to Home Screen', 'onesignal-pwa'),
+            'ios_a2hs_message' => __('Tap the share icon and select “Add to Home Screen” to install this app on your iPhone.', 'onesignal-pwa'),
+            'ios_a2hs_delay' => 15,
             'version' => ONESIGNAL_PWA_VERSION,
         );
 
